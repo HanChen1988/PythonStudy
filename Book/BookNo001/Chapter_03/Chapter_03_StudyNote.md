@@ -224,11 +224,201 @@
 
 #### 2.使用方法pop()删除元素
 
+>   ​		方法pop()可删除列表末尾的元素，并让你能够接着使用它。术语弹出（pop）源自这样的类比：列表就像一个栈，而删除列表末尾的元素相当于弹出栈顶元素。
+>
+>   ​		示例1：
+>
+>   ​				\# 定义并打印列表motorcycles
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki']
+>
+>   ​				print(motorcycles)
+>
+>   ​				\# 我们从这个列表中弹出一个值，并将其存储到变量popped_motorcycle中。
+>
+>   ​				popped_motorcycle = motorcycles.pop()
+>
+>   ​				\# 我们打印这个列表，以核实从其中删除了一个值。
+>
+>   ​				print(motorcycles)
+>
+>   ​				\# 我们打印弹出的值，以证明我们依然能够访问被删除的值。
+>
+>   ​				print(popped_motorcycle)
+>
+>   ​		示例2：
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki']
+>
+>   ​				last_owned = motorcycles.pop()
+>
+>   ​				print("The last motorcycles I owned was a " + last_owned.title() + ".")
+>
+>   ​				输出是一个简单的句子，指出了最新购买的是那款摩托车：
+>
+>   ​				The last motorcycle I owned was a Suzuki.
 
+#### 3.弹出列表中任何位置处的元素
 
-​	
+>   ​		实际上，你可以使用pop()来删除列表中任何位置的元素，只需在括号中指定要删除的元素的索引即可。
+>
+>   ​		示例：
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki']
+>
+>   ​				# 我们弹出了列表中的第一款摩托车
+>
+>   ​				first_owned = motorcycles.pop(0)
+>
+>   ​				# 然后打印了一条有关这辆摩托车的消息。输出是一个简单的句子，描述了我购买的第一辆摩托车。
+>
+>   ​				print('The first motorcycle I owned was a ' + first_owned.title() + '.')
+>
+>   ​		别忘了，每当你使用pop()时，被弹出的元素就不再列表中了。
+>
+>   ​		**使用del语句还是pop方法，有一个简单的判断标准：如果你要从列表中删除一个元素，且不再以任何方式使用它，就使用del语句；如果你要在删除元素后还能继续使用它，就使用方法pop()。**
 
+#### 4.根据值删除元素
 
+>   ​		有时候，你不知道要从列表中删除的值所处的位置。如果你只知道要删除的元素的值，可使用方法remove()。
+>
+>   ​		示例1：
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
+>
+>   ​				print(motorcycles)
+>
+>   ​				\# 让Python确定‘ducati'出现在列表的什么地方，并将该元素删除
+>
+>   ​				motorcycles.remove('ducati')
+>
+>   ​				print(motorcycles)
+>
+>   ​				输出语句：
+>
+>   ​				['honda', 'yamaha', 'suzuki', 'ducati']
+>
+>   ​				['honda', 'yamaha', 'suzuki']
+>
+>   ​		示例2：
+>
+>   ​				# 定义列表
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
+>
+>   ​				print(motorcycles)
+>
+>   ​				# 将值'ducati'存储在变量too_expensive中。
+>
+>   ​				too_expensive = 'ducati'
+>
+>   ​				# 我们使用这个变量来告诉Python将哪个值从列表中删除
+>
+>   ​				motorcycles.remove(too_expensive)
+>
+>   ​				print(motorcycles)
+>
+>   ​				# 最'ducati'已经从列表中删除，但它还存储在变量too_expensive中，让我们能够打印一条消息，指出将'ducati'从列表motorcycles中删除的原因
+>
+>   ​				print("\nA " + too_expensive.title() + " is too expensive for me.")
+>
+>   ​				输出语句：
+>
+>   ​				['honda', 'yamaha', 'suzuki', 'ducati']
+>
+>   ​				['honda', 'yamaha', 'suzuki']
+>
+>   
+>
+>   ​				A Ducati is too expensive for me.
+>
+>   ​		**注意：方法remove()只删除第一个指定的值。如果要删除的值可能在列表中出现多次，就需要使用循环来判断是否删除了所有这样的值。**
+
+## 3.3 组织列表
+
+>   ​		在你创建的列表中，元素的排列顺序常常是无法预测的，因为你并非总能控制用户提供数据的顺序。这虽然在大多数情况下都是不可避免的，但你经常需要以特定的顺序呈现信息。有时候，你希望保留列表元素最初的排列顺序，而有时候又需要调整排列顺序。Python提供了很多组织列表的方式，可根据具体情况选用。
+
+### 3.3.1 使用方法sort()对列表进行永久性排序
+
+>   ​		方法sort()永久性地修改了列表元素的排列顺序。
+>
+>   ​		示例1：
+>
+>   ​				cars.py
+>
+>   ​				cars = ['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​				cars.sort()
+>
+>   ​				print(cars)
+>
+>   ​				输出语句：
+>
+>   ​				['audi', 'bmw', 'subaru', 'toyota']
+>
+>   ​		还可以按与字母顺序相反的顺序排列列表元素，为此，只需向sort()方法传递参数reverse=True。
+>
+>   ​		示例2：
+>
+>   ​				cars = ['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​				cars.sort(reverse=True)
+>
+>   ​				print(cars)
+>
+>   ​				输出语句：
+>
+>   ​				['toyota', 'subaru', 'bmw', 'audi']
+
+### 3.3.2 使用函数sorted()对列表进行临时排序
+
+>   ​		要保留列表元素原来的排列顺序，同时以特定的顺序呈现它们，可使用函数sorted()。
+>
+>   ​		函数sorted()让你能够按特定顺序显示列表元素，同时不影响它们在列表中的原始排列顺序。
+>
+>   ​		示例：
+>
+>   ​				cars = ['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​				\# 首先按原始顺序打印列表
+>
+>   ​				print("Here is the original list:")
+>
+>   ​				print(cars)
+>
+>   ​				\# 再按字母顺序显示该列表
+>
+>   ​				print("\nHere is the sorted list:")
+>
+>   ​				print(sorted(cars))
+>
+>   ​				\# 以特定顺序显示列表后，我们进行核实，确认列表元素的排列顺序与以前相同
+>
+>   ​				print("\nHere is the original list again:")
+>
+>   ​				print(cars)
+>
+>   ​				输出语句：
+>
+>   ​				Here is the original list:
+>
+>   ​				['bmw', 'audi', 'toyota', 'subaru']
+>
+>   
+>
+>   ​				Here is the sorted list:
+>
+>   ​				['audi', 'bmw', 'subaru', 'toyota']
+>
+>   
+>
+>   ​				Here is the original list again:
+>
+>   ​				['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​		如果你要按与字母顺序相反的顺序显示列表，也可向函数sorted()传递参数reverse=True。
+>
+>   ​		**注意：并非所有的值都是小写时，按字母顺序排列列表要复杂些。决定排列顺序时，有多种解读大写字母的方式，要指定准确的排列顺序，可能比我们这里所做的要复杂。然而，大多数排序方式都基于本节介绍的知识。**
 
 
 
