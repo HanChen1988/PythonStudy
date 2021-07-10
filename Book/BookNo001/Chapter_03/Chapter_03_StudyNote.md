@@ -420,7 +420,99 @@
 >
 >   ​		**注意：并非所有的值都是小写时，按字母顺序排列列表要复杂些。决定排列顺序时，有多种解读大写字母的方式，要指定准确的排列顺序，可能比我们这里所做的要复杂。然而，大多数排序方式都基于本节介绍的知识。**
 
+### 3.3.3 倒着打印列表
 
+>   ​		要反转列表元素的排列顺序，可使用方法reverse()。
+>
+>   ​		示例：
+>
+>   ​				cars = ['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​				print(cars)
+>
+>   ​				cars.reverse()
+>
+>   ​				print(cars)
+>
+>   ​				输出语句：
+>
+>   ​				['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​				['subaru', 'toyota', 'audi', 'bmw']
+>
+>   ​		**注意，reverse()不是指按与字母顺序相反的顺序排列列表元素，而只是反转列表元素的排列顺序。方法reverse()永久性地修改列表元素的排列顺序，但可随时恢复到原来的排列顺序，为此只需对列表再次调用reverse()即可。**
 
+### 3.3.4 确定列表的长度
 
+>   ​		使用函数len()可快速获悉列表的长度。
+>
+>   ​		示例：
+>
+>   ​				cars = ['bmw', 'audi', 'toyota', 'subaru']
+>
+>   ​				len(cars)
+>
+>   ​				输出语句：
+>
+>   ​				4
+>
+>   ​		**注意：Python计算列表元素数时从1开始，因此确定列表长度时，你应该不会遇到差一错误。**		
+
+## 3.4 使用列表时避免索引错误
+
+>   ​		索引错误意味着Python无法理解你指定的索引。程序发生索引错误时，请尝试将你指定的索引减1，然后再次运行程序，看看结果是否正确。
+>
+>   ​		别忘了，每当需要访问最后一个列表元素时，都可使用索引-1。
+>
+>   ​		仅当列表为空时，这种访问最后一个元素的方式才会导致错误。
+>
+>   ​		示例1：
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki']
+>
+>   ​				print(motorcycles[3])
+>
+>   ​				输出语句：
+>
+>   ​				Traceback（most recent call last）：
+>
+>   ​					File "motorcycles.py", line 3, in<module>
+>
+>   ​						print(motorcycles[3])
+>
+>   ​				IndexError：list index out of range
+>
+>   ​		示例2：
+>
+>   ​				motorcycles = ['honda', 'yamaha', 'suzuki']
+>
+>   ​				print(motorcycles[-1])
+>
+>   ​				输出语句：
+>
+>   ​				'suzuki'
+>
+>   ​		示例3：
+>
+>   ​				motorcycles = []
+>
+>   ​				print(motorcycles[-1])
+>
+>   ​				输出语句：
+>
+>   ​				\# 列表motorcycles不包含任何元素，因此Python返回一条索引错误消息
+>
+>   ​				Trackback（most recent call last）：
+>
+>   ​					File "motorcycles.py"，line 3，in<module>
+>
+>   ​						print(motorcycles[-1])
+>
+>   ​				IndexError：list index out of range
+>
+>   ​		**注意：发送索引错误却找不到解决办法时，请尝试将列表或其长度打印出来。列表可能与你以为的截然不同，在程序对其进行了动态处理时尤其如此。通过查看列表或其包含的元素数，可帮助你找出这种逻辑错误。**
+
+## 3.5 小结
+
+>   ​		在本章中，你学习了：列表是什么以及如何使用其中的元素；如何定义列表以及如何增删元素；如何对列表进行永久性排序，以及如何为展示列表而进行临时排序；如何确定列表的长度，以及在使用列表时如何避免索引错误。
 
