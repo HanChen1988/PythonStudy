@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time : 2021/7/4 4:55 下午
 # @Author : HanChen
-# @File : wisdom.py
+# @File : 2_5.py
 # @Software: Sublime Text
 
 # ------------------ example01 ------------------

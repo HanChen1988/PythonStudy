@@ -14,7 +14,8 @@ print("*" * 20)
 
 # ------------------ example02 ------------------
 # 使用单引号
-message = 'One of Python's strengths is its diverse community.'
+# message = 'One of Python's strengths is its diverse community.'
+message = "One of Python's strengths is its diverse community."
 print(message)
 # ------------------ example02 ------------------
 
