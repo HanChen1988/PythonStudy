@@ -470,3 +470,221 @@
 
 ## 4.4 使用列表的一部分
 
+>   ​		可以处理列表的部分元素—Python称之为切片。
+
+### 4.4.1 切片
+
+>   ​		要创建切片，可指定要使用的第一个元素的索引和最后一个元素的索引加1。与函数range()一样，Python在到达你指定的第二个索引前面的元素后停止。
+>
+>   ​		你可以生成列表的任何子集。
+>
+>   ​		如果你没有指定第一个索引，Python将自动从列表开头开始，要让切片终止于列表末尾，也可使用类似的语法。
+>
+>   ​		负数索引返回离列表末尾相应距离的元素，因此你可以输出列表末尾的任何切片。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # players.py
+>   players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>   # 输出也是一个列表，其中包含前三名队员。
+>   print(players[0:3])
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ['charles', 'martina', 'michael']
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>   # 提取列表的第2~4个元素，可将起始索引指定为1，并将终止索引指定为4
+>   print(players[1:4])
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ['martina', 'michael', 'florence']
+>   ```
+>
+>   
+>
+>   示例3：
+>
+>   ```python
+>   players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>   # 由于没有指定起始索引，Python从列表开头开始提取
+>   print(players[:4])
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ['charles', 'martina', 'michael', 'florence']
+>   ```
+>
+>   
+>
+>   示例4：
+>
+>   ```python
+>   players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>   # 提取从第3个元素到列表末尾的所有元素，可将起始索引指定为2，并省略终止索引
+>   print(players[2:])
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ['michael', 'florence', 'eli']
+>   ```
+>
+>   
+>
+>   示例5：
+>
+>   ```python
+>   players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>   # 打印名单上的最后三名队员
+>   print(players[-3:])
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ['michael', 'florence', 'eli']
+>   ```
+
+### 4.4.2 遍历切片
+
+>   ​		如果要遍历列表的部分元素，可在for循环中使用切片。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>   
+>   print("Here are the first three players on my team:")
+>   for player in players[:3]:
+>       print(player.title())
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Here are the first three players on my team:
+>   Charles
+>   Martina
+>   Michael
+>   ```
+
+### 4.4.3 复制列表
+
+>   ​		你经常需要根据既有列表创建全新的列表。
+>
+>   ​		要复制列表，可创建一个包含整个列表的切片，方法是同时省略起始索引和终止索引（[:]）。这让Python创建一个始于第一个元素，终止于最后一个元素的切片，即复制整个列表。
+>
+>   ​		**注意：当你试图使用列表的副本时，如果结果出乎意料，请确认你使用切片复制了列表。**
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # foods.py
+>   # 创建一个名为my_foods的食品列表
+>   my_foods = ['pizza', 'falafel', 'carrot cake']
+>   # 创建一个名为friend_foods的新列表
+>   friend_foods = my_foods[:]
+>   
+>   print("My favorite foods are:")
+>   print(my_foods)
+>   
+>   print("\nMy friend's favorite foods are:")
+>   print(friend_foods)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   My favorite foods are:
+>   ['pizza', 'falafel', 'carrot cake']
+>   
+>   My friend's favorite foods are:
+>   ['pizza', 'falafel', 'carrot cake']
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   # foods.py
+>   my_foods = ['pizza', 'falafel', 'carrot cake']
+>   friend_foods = my_foods[:]
+>   
+>   # 在列表my_foods中添加'cannoli'
+>   my_foods.append('cannoli')
+>   # 在friend_foods中添加'ice cream'
+>   friend_foods.append('ice cream')
+>   
+>   print("My favorite foods are:")
+>   print(my_foods)
+>   
+>   print("\nMy friend's favorite foods are:")
+>   print(friend_foods)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   My favorite foods are:
+>   ['pizza', 'falafel', 'carrot cake', 'cannoli']
+>   
+>   My friend's favorite foods are:
+>   ['pizza', 'falafel', 'carrot cake', 'ice cream']
+>   ```
+>
+>   
+>
+>   示例3：
+>
+>   ```python
+>   # foods.py
+>   my_foods = ['pizza', 'falafel', 'carrot cake']
+>   
+>   # 这行不通，这里将my_foods赋给friend_foods，而不是将my_foods的副本存储到friend_foods。因此这两个变量都指向同一个列表。
+>   friend_foods = my_foods
+>   
+>   my_foods.append('cannoli')
+>   friend_foods.append('ice cream')
+>   
+>   print("My favorite foods are:")
+>   print(my_foods)
+>   
+>   print("\nMy friend's favorite foods are:")
+>   print(friend_foods)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   My favorite foods are:
+>   ['pizza', 'falafel', 'carrot cake', 'cannoli', 'ice cream']
+>   
+>   My friend's favorite foods are:
+>   ['pizza', 'falafel', 'carrot cake', 'cannoli', 'ice cream']
+>   ```
+
+## 4.5 元组
+
