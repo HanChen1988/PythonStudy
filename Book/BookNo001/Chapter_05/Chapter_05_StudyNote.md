@@ -88,3 +88,141 @@
 >   ​		函数lower()不会修改存储在变量中的值，因此进行这样的比较时不会影响原来的变量。
 >
 >   ​		网站采用类似的方式让用户输入的数据符合特定的格式。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   car = 'Audi'
+>   print(car == 'audi')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   False
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   car = 'Audi'
+>   print(car.lower() == 'audi')
+>   print(car)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   True
+>   Audi
+>   ```
+
+### 5.2.3 检查是否不相等
+
+>​		要判断两个值是否不等，可结合使用惊叹号和等号（!=），其中的惊叹号表示不，在很多编程语言中都如此。
+>
+>​		你编写的大多数条件表达式都检查两个值是否相等，但有时候检查两个值是否不等的效率更高。
+>
+>
+>
+>示例：
+>
+>```python
+># toppings.py
+>requested_topping = 'mushrooms'
+>
+>if requested_topping != 'anchovies':
+>    print("Hold the anchovies!")
+>```
+>
+>输出语句：
+>
+>```python
+>Hold the anchovies!
+>```
+
+### 5.2.4 比较数字
+
+>   ​		在if语句中可使用各种数学比较，这让你能够直接检查关心的条件。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # 检查两个数字是否相等
+>   age = 18
+>   print(age == 18)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   True
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   # 检查两个数字是否不等
+>   # magic_number.py
+>   answer = 17
+>   if answer != 42:
+>       print("That is not the correct answer. Please try again!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   That is not the correct answer. Please try again!
+>   ```
+>
+>   
+>
+>   示例3：
+>
+>   ```python
+>   age = 19
+>   # 小于
+>   print("age < 21:")
+>   print(age < 21)
+>   # 小于等于
+>   print("age <= 21:")
+>   print(age <= 21)
+>   # 大于
+>   print("age > 21:")
+>   print(age > 21)
+>   # 大于等于
+>   print("age >= 21")
+>   print(age >= 21)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   age < 21:
+>   True
+>   age <= 21:
+>   True
+>   age > 21:
+>   False
+>   age >= 21
+>   False
+>   ```
+
+### 5.2.5 检查多个条件
+
+>   ​		你可能想同时检查多个条件，关键字and和or可助你一臂之力。
+
+#### 1. 使用and检查多个条件
+
+#### 2. 使用or检查多个条件
+
+
+
