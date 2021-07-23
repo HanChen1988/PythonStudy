@@ -17,11 +17,11 @@
 >   cars = ['audi', 'bmw', 'subaru', 'toyota']
 >   
 >   for car in cars:
->       # 检查当前的汽车名是否是'bmw'。如果是，就以全大写的方式打印它；否则就以首字母大写的方式打印。
->       if car == 'bmw':
->           print(car.upper())
->       else:
->           print(car.title())
+>        # 检查当前的汽车名是否是'bmw'。如果是，就以全大写的方式打印它；否则就以首字母大写的方式打印。
+>    	if car == 'bmw':
+>            print(car.upper())
+>    	else:
+>            print(car.title())
 >   ```
 >
 >   输出语句：
@@ -174,7 +174,7 @@
 >   # magic_number.py
 >   answer = 17
 >   if answer != 42:
->       print("That is not the correct answer. Please try again!")
+>    	print("That is not the correct answer. Please try again!")
 >   ```
 >
 >   输出语句：
@@ -222,7 +222,191 @@
 
 #### 1. 使用and检查多个条件
 
+>   ​		要检查是否两个条件都为True，可使用关键字and将两个条件测试合二为一；如果每个测试都通过了，整个表达式就为True；如果至少有一个测试没有通过，整个表达式就为False。
+>
+>   ​		为改善可读性，可将每个测试都分别放在一对括号内，但并非必须这样做。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # 定义了两个用于存储年龄的变量:age_0和age_1
+>   age_0 = 22
+>   age_1 = 18
+>   print("(age_0 >= 21) and (age_1 >= 21):")
+>   # 检查这两个变量是否都大于或等于21
+>   print((age_0 >= 21) and (age_1 >= 21))
+>   
+>   age_1 = 22
+>   print("(age_0 >= 21) and (age_1 >= 21):")
+>   print((age_0 >= 21) and (age_1 >= 21))
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   (age_0 >= 21) and (age_1 >= 21):
+>   False
+>   (age_0 >= 21) and (age_1 >= 21):
+>   True
+>   ```
+
 #### 2. 使用or检查多个条件
 
+>   ​		关键字or也能够让你检查多个条件，但只要至少有一个条件满足，就能通过整个测试。仅当两个测试都没有通过时，使用or的表达式才为False。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   age_0 = 22
+>   age_1 = 18
+>   print("(age_0 >= 21) or (age_1 >= 21):")
+>   print((age_0 >= 21) or (age_1 >= 21))
+>   
+>   age_0 = 18
+>   print("(age_0 >= 21) or (age_1 >= 21):")
+>   print((age_0 >= 21) or (age_1 >= 21))
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   (age_0 >= 21) or (age_1 >= 21):
+>   True
+>   (age_0 >= 21) or (age_1 >= 21):
+>   False
+>   ```
 
+### 5.2.6 检查特定值是否包含在列表中
+
+>   ​		有时候，执行操作前必须检查列表是否包含特定的值。
+>
+>   ​		要判断特定的值是否已包含在列表中，可使用关键字in。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   requested_toppings = ['mushroom', 'onions', 'pineapple']
+>   print("'mushroom' in requested_toppings")
+>   print('mushroom' in requested_toppings)
+>   
+>   print("'pepperoni' in requested_toppings")
+>   print('pepperoni' in requested_toppings)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   'mushroom' in requested_toppings
+>   True
+>   'pepperoni' in requested_toppings
+>   False
+>   ```
+
+### 5.2.7 检查特定值是否不包含在列表中
+
+>   ​		还有些时候，确定特定的值未包含在列表中很重要；在这种情况下，可使用关键字not in。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # banned_users.py
+>   banned_users = ['andrew', 'carolina', 'david']
+>   user = 'marie'
+>   # 如果user的值未包含在列表banned_users中,Python将返回True,进而执行缩进的代码行
+>   if user not in banned_users:
+>       print(user.title() + ", you can post a response if you wish.")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Marie, you can post a response if you wish.
+>   ```
+
+### 5.2.8 布尔表达式
+
+>   ​		布尔表达式的结果要么为True，要么为False。
+>
+>   ​		布尔值通常用于记录条件。
+>
+>   ​		在跟踪程序状态或程序中重要的条件方面，布尔值提供了一种高效的方式。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   game_active = True
+>   print("game_active:")
+>   print(game_active)
+>   can_edit = False
+>   print("can_edit:")
+>   print(can_edit)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   game_active:
+>   True
+>   can_edit:
+>   False
+>   ```
+
+## 5.3 if语句
+
+>   ​		if语句有很多种，选择使用哪种取决于要测试的条件数。
+
+### 5.3.1 简单的 if 语句
+
+>   ​		最简单的if语句只有一个测试和一个操作。
+>
+>   ​		在if语句中可包含任何条件测试，而在紧跟在测试后面的缩进代码块中，可执行任何操作。如果条件测试的结果为True,Python就会执行紧跟在if语句后面的代码；否则Python将忽略这些代码。
+>
+>   ​		在紧跟在if语句后面的代码块中，可根据需要包含任意数量的代码行。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # voting.py
+>   age = 19
+>   if age >= 18:
+>       print("You are old enough to vote!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   You are old enough to vote!
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   age = 19
+>   if age >= 18:
+>       print("You are old enough to vote!")
+>       print("Have you registered to vote yet?")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   You are old enough to vote!
+>   Have you registered to vote yet?
+>   ```
+
+### 5.3.2 if-else 语句
 
