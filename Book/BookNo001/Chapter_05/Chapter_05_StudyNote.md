@@ -136,7 +136,7 @@
 >requested_topping = 'mushrooms'
 >
 >if requested_topping != 'anchovies':
->    print("Hold the anchovies!")
+>        print("Hold the anchovies!")
 >```
 >
 >输出语句：
@@ -322,7 +322,7 @@
 >   user = 'marie'
 >   # 如果user的值未包含在列表banned_users中,Python将返回True,进而执行缩进的代码行
 >   if user not in banned_users:
->       print(user.title() + ", you can post a response if you wish.")
+>        print(user.title() + ", you can post a response if you wish.")
 >   ```
 >
 >   输出语句：
@@ -364,6 +364,8 @@
 ## 5.3 if语句
 
 >   ​		if语句有很多种，选择使用哪种取决于要测试的条件数。
+>
+>   ​		如果你只想执行一个代码块，就使用if-elif-else结构；如果要运行多个代码块，就使用一系列独立的if语句。
 
 ### 5.3.1 简单的 if 语句
 
@@ -381,7 +383,7 @@
 >   # voting.py
 >   age = 19
 >   if age >= 18:
->       print("You are old enough to vote!")
+>        print("You are old enough to vote!")
 >   ```
 >
 >   输出语句：
@@ -397,8 +399,8 @@
 >   ```python
 >   age = 19
 >   if age >= 18:
->       print("You are old enough to vote!")
->       print("Have you registered to vote yet?")
+>        print("You are old enough to vote!")
+>        print("Have you registered to vote yet?")
 >   ```
 >
 >   输出语句：
@@ -409,4 +411,195 @@
 >   ```
 
 ### 5.3.2 if-else 语句
+
+>   ​		经常需要在条件测试通过了执行一个操作，并在没有通过时执行另一个操作；在这种情况下，可使用Python提供的if-else语句。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   age = 17
+>   if age >= 18:
+>       print("You are old enough to vote!")
+>       print("Have you registered to vote yet?")
+>   else:
+>       print("Sorry, you are too young to vote.")
+>       print("Please register to vote as soon as you turn 18!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Sorry, you are too young to vote.
+>   Please register to vote as soon as you turn 18!
+>   ```
+
+### 5.3.3 if-elif-else 结构
+
+>   ​		经常需要检查超过两个的情形，为此可使用Python的if-elif-else结构。
+>
+>   ​		Python只执行if-elif-else结构中的一个代码块，它依次检查每个条件测试，直到遇到通过了的条件测试。测试通过后，Python将执行紧跟在它后面的代码，并跳过余下的测试。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   """
+>   看一个根据年龄段收费的游乐场:
+>   4岁以下免费;
+>   4~18岁收费5美元;
+>   18岁（含）以上收费10美元。
+>   """
+>   # amusement_park.py
+>   age = 12
+>   
+>   if age < 4:
+>       print("Your admission cost is $0.")
+>   elif age < 18:
+>       print("Your admission cost is $5.")
+>   else:
+>       print("Your admission cost is $10.")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Your admission cost is $5.
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   """
+>   看一个根据年龄段收费的游乐场:
+>   4岁以下免费;
+>   4~18岁收费5美元;
+>   18岁（含）以上收费10美元。
+>   """
+>   # amusement_park.py
+>   age = 12
+>   if age < 4:
+>       price = 0
+>   elif age < 18:
+>       price = 5
+>   else:
+>       price = 10
+>   
+>   print("Your admission cost is $" + str(price) + ".")
+>   ```
+>
+>   输出语句:
+>
+>   ```python
+>   Your admission cost is $5.
+>   ```
+
+### 5.3.4 使用多个elif代码块
+
+>   ​		可根据需要使用任意数量的elif代码块。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   """
+>   看一个根据年龄段收费的游乐场:
+>   4岁以下免费;
+>   4~18岁收费5美元;
+>   18岁（含）以上收费10美元；
+>   65岁（含）以上可以半价（5美元）。
+>   """
+>   # amusement_park.py
+>   age = 12
+>   
+>   if age < 4:
+>       price = 0
+>   elif age < 18:
+>       price = 5
+>   elif age < 65:
+>       price = 10
+>   else:
+>       price = 5
+>   
+>   print("Your admission cost is $" + str(price) + ".")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Your admission cost is $5.
+>   ```
+
+### 5.3.5 省略 else 代码块
+
+>   ​		Python并不要求if-elif结构后面必须有else代码块。在有些情况下，else代码块很有用；而其他一些情况下，使用一条elif语句来处理特定的情形更清晰。
+>
+>   ​		else是一条包罗万象的语句，只要不满足任何if或elif中的条件测试，其中的代码就会执行，这可能会引入无效甚至恶意的数据。如果知道最终要测试的条件，应考虑使用一个elif代码块来代替else代码块。这样，你就可以肯定，仅当满足相应的条件时，你的代码才会执行。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   age = 12
+>   
+>   if age < 4:
+>       price = 0
+>   elif age < 18:
+>       price = 5
+>   elif age < 65:
+>       price = 10
+>   elif age >= 65:
+>       price = 5
+>   
+>   print("Your admission cost is $" + str(price) + ".")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Your admission cost is $5.
+>   ```
+
+### 5.3.6 测试多个条件
+
+>   ​		有时候必须检查你关心的所有条件。在这种情况下，应使用一系列不包含elif和else代码块的简单if语句。在可能有多个条件为True，且你需要在每个条件为True时都采取相应措施时，适合使用这种方法。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # toppings.py
+>   requested_toppings = ['mushrooms', 'extra cheese']
+>   
+>   if 'mushrooms' in requested_toppings:
+>       print("Adding mushrooms.")
+>   if 'pepperoni' in requested_toppings:
+>       print("Adding pepperoni.")
+>   if 'extra cheese' in requested_toppings:
+>       print("Adding extra cheese.")
+>       
+>   print("\nFinished making your pizza!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Adding mushrooms.
+>   Adding extra cheese.
+>   
+>   Finished making your pizza!
+>   ```
+
+## 5.4 使用 if 语句处理列表
+
+>   ​		通过结合使用if语句和列表，可完成一些有趣的任务：对列表中特定的值做特殊处理；高效地管理不断变化的情形；证明代码在各种情况下都将按预期那样运行。
+
+### 5.4.1 检查特殊元素
 
