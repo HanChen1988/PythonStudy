@@ -136,7 +136,7 @@
 >requested_topping = 'mushrooms'
 >
 >if requested_topping != 'anchovies':
->        print("Hold the anchovies!")
+>         print("Hold the anchovies!")
 >```
 >
 >输出语句：
@@ -421,11 +421,11 @@
 >   ```python
 >   age = 17
 >   if age >= 18:
->       print("You are old enough to vote!")
->       print("Have you registered to vote yet?")
+>        print("You are old enough to vote!")
+>        print("Have you registered to vote yet?")
 >   else:
->       print("Sorry, you are too young to vote.")
->       print("Please register to vote as soon as you turn 18!")
+>        print("Sorry, you are too young to vote.")
+>        print("Please register to vote as soon as you turn 18!")
 >   ```
 >
 >   输出语句：
@@ -456,11 +456,11 @@
 >   age = 12
 >   
 >   if age < 4:
->       print("Your admission cost is $0.")
+>        print("Your admission cost is $0.")
 >   elif age < 18:
->       print("Your admission cost is $5.")
+>        print("Your admission cost is $5.")
 >   else:
->       print("Your admission cost is $10.")
+>        print("Your admission cost is $10.")
 >   ```
 >
 >   输出语句：
@@ -483,11 +483,11 @@
 >   # amusement_park.py
 >   age = 12
 >   if age < 4:
->       price = 0
+>        price = 0
 >   elif age < 18:
->       price = 5
+>        price = 5
 >   else:
->       price = 10
+>        price = 10
 >   
 >   print("Your admission cost is $" + str(price) + ".")
 >   ```
@@ -518,13 +518,13 @@
 >   age = 12
 >   
 >   if age < 4:
->       price = 0
+>        price = 0
 >   elif age < 18:
->       price = 5
+>        price = 5
 >   elif age < 65:
->       price = 10
+>        price = 10
 >   else:
->       price = 5
+>        price = 5
 >   
 >   print("Your admission cost is $" + str(price) + ".")
 >   ```
@@ -549,13 +549,13 @@
 >   age = 12
 >   
 >   if age < 4:
->       price = 0
+>        price = 0
 >   elif age < 18:
->       price = 5
+>        price = 5
 >   elif age < 65:
->       price = 10
+>        price = 10
 >   elif age >= 65:
->       price = 5
+>        price = 5
 >   
 >   print("Your admission cost is $" + str(price) + ".")
 >   ```
@@ -579,11 +579,11 @@
 >   requested_toppings = ['mushrooms', 'extra cheese']
 >   
 >   if 'mushrooms' in requested_toppings:
->       print("Adding mushrooms.")
+>        print("Adding mushrooms.")
 >   if 'pepperoni' in requested_toppings:
->       print("Adding pepperoni.")
+>        print("Adding pepperoni.")
 >   if 'extra cheese' in requested_toppings:
->       print("Adding extra cheese.")
+>        print("Adding extra cheese.")
 >       
 >   print("\nFinished making your pizza!")
 >   ```
@@ -603,3 +603,112 @@
 
 ### 5.4.1 检查特殊元素
 
+>   示例1：
+>
+>   ```python
+>   # toppings.py
+>   requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+>   
+>   for requested_topping in requested_toppings:
+>       print("Adding " + requested_topping + ".")
+>   
+>   print("\nFinished making your pizza!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Adding mushrooms.
+>   Adding green peppers.
+>   Adding extra cheese.
+>   
+>   Finished making your pizza!
+>   ```
+>
+>   
+>
+>   示例2:
+>
+>   ```python
+>   # toppings.py
+>   requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+>   
+>   for requested_topping in requested_toppings:
+>       # 检查顾客点的是否是青椒，如果是，就显示一条消息，指出不能点青椒的原因。
+>       if requested_topping == 'green peppers':
+>           print("Sorry, we are out of green peppers right now.")
+>       # else代码块确保其他配料都将添加到比萨中。
+>       else:
+>       	print("Adding " + requested_topping + ".")
+>   
+>   print("\nFinished making your pizza!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Adding mushrooms.
+>   Sorry, we are out of green peppers right now.
+>   Adding extra cheese.
+>   
+>   Finished making your pizza!
+>   ```
+
+### 5.4.2 确定列表不是空的
+
+>   示例：
+>
+>   ```python
+>   requested_toppings = []
+>   # 在if语句中将列表名用在条件表达式中时，Python将在列表至少包含一个元素时返回True，并在列表为空时返回False。
+>   if requested_toppings:
+>       for requested_topping in requested_toppings:
+>           print("Adding " + requested_topping + ".")
+>       print("\nFinished making your pizza!")
+>   else:
+>       print("Are you sure you want a plain pizza?")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Are you sure you want a plain pizza?
+>   ```
+
+### 5.4.3 使用多个列表
+
+>   示例：
+>
+>   ```python
+>   # 定义一个列表，其中包含比萨店供应的配料。
+>   available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
+>   # 定义一个列表，其中包含顾客点的配料。
+>   requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+>   # 遍历顾客点的配料列表
+>   for requested_topping in requested_toppings:
+>       # 对于顾客点的每种配料，我们都检查它是否包含在供应的配料列表中。
+>       if requested_topping in available_toppings:
+>           print("Adding " + requested_topping + ".")
+>       else:
+>           print("Sorry, we don't have " + requested_topping + ".")
+>   
+>   print("\nFinished making your pizza!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Adding mushrooms.
+>   Sorry, we don't have french fries.
+>   Adding extra cheese.
+>   
+>   Finished making your pizza!
+>   ```
+
+## 5.5 设置 if 语句的格式
+
+>   ​		在条件测试的格式设置方面，PEP8提供的唯一建议是，在诸如==、>=和<=等比较运算符两边各添加一个空格，这样的空格不会影响Python对代码的解读，而只是让代码阅读起来更容易。
+
+## 5.6 小结
+
+>   ​		在本章中，你学习了如何编写结果要么为True要么为False的条件测试。你学习了如何编写简单的if语句、if-else语句和if-elif-else结构。在程序中，你使用了这些结构来测试特定的条件，以确定这些条件是否满足。你学习了如何在利用高效的for循环的同时，以不同于其他元素的方式对特定的列表元素进行处理。你还再次学习了Python就代码格式方面提出的建议，这可确保即便你编写的程序越来越复杂，其代码依然易于阅读和理解。
