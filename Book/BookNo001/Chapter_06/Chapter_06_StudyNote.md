@@ -271,7 +271,7 @@
 >   
 >   for key, value in user_0.items():
 >   	print("\nKey:" + key)
->       print("Value:" + value)
+>        print("Value:" + value)
 >   ```
 >
 >   输出语句：
@@ -302,8 +302,8 @@
 >   }
 >   
 >   for name, language in favorite_languages.items():
->       print(name.title() + "'s favorite language is " +
->            language.title() +
+>    	print(name.title() + "'s favorite language is " +
+>        	language.title() +
 >            ".")
 >   ```
 >
@@ -339,7 +339,7 @@
 >   }
 >   
 >   for name in favorite_languages.keys():
->       print(name.title())
+>    	print(name.title())
 >   ```
 >
 >   输出语句：
@@ -365,11 +365,11 @@
 >   
 >   friends = ['phil', 'sarah']
 >   for name in favorite_languages.keys():
->       print(name.title())
+>        print(name.title())
 >       
->       if name in friends:
->           print(" Hi " + name.title() +
->                ", I see your favorite_language is " +
+>        if name in friends:
+>            print(" Hi " + name.title() +
+>            	", I see your favorite_language is " +
 >                favorite_languages[name].title() + "!")
 >   ```
 >
@@ -397,7 +397,7 @@
 >   }
 >   
 >   if 'erin' not in favorite_languages.keys():
->       print("Erin, please take our poll!")
+>        print("Erin, please take our poll!")
 >   ```
 >
 >   输出语句：
@@ -425,7 +425,7 @@
 >   }
 >   
 >   for name in sorted(favorite_languages.keys()):
->       print(name.title() + ", thank you for taking the poll.")
+>        print(name.title() + ", thank you for taking the poll.")
 >   ```
 >
 >   输出语句：
@@ -459,7 +459,7 @@
 >   
 >   print("The following languages have been mentioned:")
 >   for language in favorite_languages.values():
->       print(language.title())
+>        print(language.title())
 >   ```
 >
 >   输出语句：
@@ -486,7 +486,7 @@
 >   
 >   print("The following languages have been mentioned:")
 >   for language in set(favorite_languages.values()):
->       print(language.title())
+>        print(language.title())
 >   ```
 >
 >   输出语句：
@@ -576,9 +576,9 @@
 >    
 >for alien in aliens[0:3]:
 >    if alien['color'] == 'green':
->        alien['color'] = 'yellow'
->        alien['speed'] = 'medium'
->        alien['points'] = 10
+>     	alien['color'] = 'yellow'
+>         alien['speed'] = 'medium'
+>         alien['points'] = 10
 >
 ># 显示前五个外星人
 >for alien in aliens[:5]:
@@ -615,13 +615,13 @@
 >    
 >for alien in aliens[0:3]:
 >    if alien['color'] == 'green':
->        alien['color'] = 'yellow'
->        alien['speed'] = 'medium'
->        alien['points'] = 10
+>         alien['color'] = 'yellow'
+>         alien['speed'] = 'medium'
+>         alien['points'] = 10
 >    elif alien['color'] == 'yellow':
->        alien['color'] = 'red'
->        alien['speed'] = 'fast'
->        alien['points'] = 15
+>         alien['color'] = 'red'
+>         alien['speed'] = 'fast'
+>         alien['points'] = 15
 >
 ># 显示前五个外星人
 >for alien in aliens[:5]:
@@ -666,15 +666,15 @@
 >       "with the following toppings:")
 >   
 >   for topping in pizza['toppings']:
->       print("\t" + topping)
+>        print("\t" + topping)
 >   ```
 >
 >   输出语句：
 >
 >   ```python
 >   You ordered a thick-crust pizzawith the following toppings:
->       mushrooms
->       extra cheese
+>        mushrooms
+>        extra cheese
 >   ```
 >
 >   
@@ -691,9 +691,9 @@
 >   }
 >   
 >   for name, languages in favorite_languages.items():
->       print("\n" + name.title() + "'s favorite languages are:")
->       for language in languages:
->           print("\t" + language.title())
+>        print("\n" + name.title() + "'s favorite languages are:")
+>        for language in languages:
+>            print("\t" + language.title())
 >   ```
 >
 >   输出语句：
@@ -701,19 +701,19 @@
 >   ```python
 >   
 >   Jen's favorite languages are:
->       Python
->       Ruby
+>        Python
+>        Ruby
 >   
 >   Sarah's favorite languages are:
->       C
+>        C
 >   
 >   Edward's favorite languages are:
->       Ruby
->       Go
+>        Ruby
+>        Go
 >   
 >   Phil's favorite languages are:
->       Python
->       Haskell
+>        Python
+>        Haskell
 >   ```
 
 ### 6.4.3 在字典中存储字典
@@ -740,12 +740,12 @@
 >   }
 >   
 >   for username, user_info in users.items():
->       print("\nUsername: " + username) 
+>        print("\nUsername: " + username) 
 >   	full_name = user_info['first'] + " " + user_info['last']
->       location = user_info['location']
+>        location = user_info['location']
 >       
->       print("\tFull name: " + full_name.title())
->       print("\tLocation: " + location.title())
+>        print("\tFull name: " + full_name.title())
+>        print("\tLocation: " + location.title())
 >   ```
 >
 >   输出语句：
@@ -753,12 +753,12 @@
 >   ```python
 >   
 >   Username: aeinstein
->       Full name: Albert Einstein
->       Location: Princeton
+>        Full name: Albert Einstein
+>        Location: Princeton
 >   
 >   Username: mcurie
->       Full name: Marie Curie
->       Location: Paris
+>        Full name: Marie Curie
+>        Location: Paris
 >   ```
 
 ## 6.5 小结
