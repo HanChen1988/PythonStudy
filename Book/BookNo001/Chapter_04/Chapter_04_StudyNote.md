@@ -240,7 +240,7 @@
 >   	print(magician.title() + ", that was a great trick!")
 >   	print("I can't wait to see your next trick, " + magician.title() + ".\n")
 >   	
->       print("Thank you everyone, that was a great magic show!")
+>        print("Thank you everyone, that was a great magic show!")
 >   ```
 >
 >   输出语句：
@@ -576,7 +576,7 @@
 >   
 >   print("Here are the first three players on my team:")
 >   for player in players[:3]:
->       print(player.title())
+>        print(player.title())
 >   ```
 >
 >   输出语句：
