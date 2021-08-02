@@ -152,9 +152,9 @@
 >   height = int(height)
 >   
 >   if height >= 36:
->       print("\nYou're tall enough to ride!")
+>        print("\nYou're tall enough to ride!")
 >   else:
->       print("\nYou'll be able to ride when you're a little older.")
+>        print("\nYou'll be able to ride when you're a little older.")
 >   ```
 >
 >   输出语句：
@@ -201,9 +201,9 @@
 >   number = int(number)
 >   
 >   if number % 2 == 0:
->       print("\nThe number " + str(number) + " is even.")
+>        print("\nThe number " + str(number) + " is even.")
 >   else:
->       print("\nThe number " + str(number) + " is odd.")
+>        print("\nThe number " + str(number) + " is odd.")
 >   ```
 >
 >   输出语句：
@@ -223,4 +223,128 @@
 ## 7.2 while 循环简介
 
 >   ​		for循环用于针对集合中的每个元素的一个代码块，而while循环不断地运行，直到指定的条件不满足为止。
+
+### 7.2.1 使用 while 循环
+
+>   示例：
+>
+>   ```python
+>   # counting.py
+>   current_number = 1
+>   while current_number <= 5:
+>       print(current_number)
+>       current_number += 1
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   1
+>   2
+>   3
+>   4
+>   5
+>   ```
+
+### 7.2.2 让用户选择何时退出
+
+>   ​		可使用while循环让程序在用户愿意时不断地运行。我们在其中定义了一个退出值，只要用户输入的不是这个值，程序就接着运行。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # parrot.py
+>   prompt = "\nTell me something, and I will repeat it back to you:"
+>   prompt += "\nEnter 'quit' to end the program. "
+>   message = ""
+>   while message != 'quit':
+>       message = input(prompt)
+>       print(message)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. Hello everyone!
+>   Hello everyone!
+>   
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. Hello again.
+>   Hello again.
+>   
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. quit
+>   quit
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   # parrot.py
+>   prompt = "\nTell me something, and I will repeat it back to you:"
+>   prompt += "\nEnter 'quit' to end the program. "
+>   message = ""
+>   while message != 'quit':
+>       message = input(prompt)
+>       
+>       if message != 'quit':
+>       	print(message)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. Hello everyone!
+>   Hello everyone!
+>   
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. Hello again.
+>   Hello again.
+>   
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. quit
+>   ```
+
+### 7.2.3 使用标志
+
+>   ​		在要求很多条件都满足才继续运行的程序中，可定义一个变量，用于判断整个程序是否处于活动状态。这个变量被称为标志，充当了程序的交通信号灯。你可让程序在标志为True时继续运行，并在任何事件导致标志的值为False时让程序停止运行。这样，在while语句中就只需检查一个条件—标志的当前值是否为True，并将所有测试（是否发生了应将标志设置为False的事件）都放在其他地方，从而让程序变得更为整洁。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   prompt = "\nTell me something, and I will repeat it back to you:"
+>   prompt += "\nEnter 'quit' to end the program. "
+>   
+>   active = True
+>   while active:
+>       message = input(prompt)
+>       
+>       if message == 'quit':
+>           active = False
+>       else:
+>           print(message)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. Hello everyone!
+>   Hello everyone!
+>   
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. Hello again.
+>   Hello again.
+>   
+>   Tell me something, and I will repeat it back to you:
+>   Enter 'quit' to end the program. quit
+>   ```
 
