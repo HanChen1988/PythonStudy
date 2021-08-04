@@ -232,8 +232,8 @@
 >   # counting.py
 >   current_number = 1
 >   while current_number <= 5:
->       print(current_number)
->       current_number += 1
+>        print(current_number)
+>        current_number += 1
 >   ```
 >
 >   输出语句：
@@ -260,8 +260,8 @@
 >   prompt += "\nEnter 'quit' to end the program. "
 >   message = ""
 >   while message != 'quit':
->       message = input(prompt)
->       print(message)
+>        message = input(prompt)
+>        print(message)
 >   ```
 >
 >   输出语句：
@@ -290,9 +290,9 @@
 >   prompt += "\nEnter 'quit' to end the program. "
 >   message = ""
 >   while message != 'quit':
->       message = input(prompt)
+>        message = input(prompt)
 >       
->       if message != 'quit':
+>        if message != 'quit':
 >       	print(message)
 >   ```
 >
@@ -325,12 +325,12 @@
 >   
 >   active = True
 >   while active:
->       message = input(prompt)
+>        message = input(prompt)
 >       
->       if message == 'quit':
->           active = False
->       else:
->           print(message)
+>        if message == 'quit':
+>            active = False
+>        else:
+>            print(message)
 >   ```
 >
 >   输出语句：
@@ -346,5 +346,129 @@
 >   
 >   Tell me something, and I will repeat it back to you:
 >   Enter 'quit' to end the program. quit
+>   ```
+
+### 7.2.4 使用 break 退出循环
+
+>   ​		要立即退出while循环，不再运行循环中余下的代码，也不管条件测试的结果如何，可使用break语句。
+>
+>   ​		break语句用于控制程序流程，可使用它来控制哪些代码行将执行，哪些代码行不执行，从而让程序按你的要求执行你要执行的代码。
+>
+>   ​		注意：在任何Python循环中都可使用break语句。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # cities.py
+>   prompt = "\nPlease enter the name of a city you have visited:"
+>   prompt += "\n(Enter 'quit' when you are finished.) "
+>   
+>   while True:
+>        city = input(prompt)
+>       
+>        if city == 'quit':
+>            break
+>        else:
+>            print("I'd love to go to " + city.title() + "!")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Please enter the name of a city you have visited:
+>   (Enter 'quit' when you are finished.) New York
+>   I'd love to go to New York!
+>   
+>   Please enter the name of a city you have visited:
+>   (Enter 'quit' when you are finished.) San Francisco
+>   I'd love to go to San Francisco!
+>   
+>   Please enter the name of a city you have visited:
+>   (Enter 'quit' when you are finished.) quit
+>   ```
+
+### 7.2.5 在循环中使用 continue
+
+>   ​		要返回到循环开头，并根据条件测试结果决定是否继续执行循环，可使用continue语句，它不像break语句那样不再执行余下的代码并退出整个循环。
+>
+>   ​		
+>
+>   示例：
+>
+>   ```python
+>   # counting.py
+>   current_number = 0
+>   while current_number < 10:
+>       current_number += 1
+>       if current_number % 2 == 0:
+>           continue
+>       
+>       print(current_number)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   1
+>   3
+>   5
+>   7
+>   9
+>   ```
+
+### 7.2.6 避免无限循环
+
+>   ​		每个while循环都必须有停止运行的途径，这样才不会没完没了地执行下去。
+>
+>   ​		每个程序员都会偶尔因不小心而编写出无限循环，在循环的退出条件比较微妙时尤其如此。如果程序陷入无限循环，可按Ctrl+C，也可关闭显示程序输出的终端窗口。
+>
+>   ​		要避免编写无限循环，务必对每个while循环进行测试，确保它按预期那样结束。如果你希望程序在用户输入特定值时结束，可运行程序并输入这样的值；如果在这种情况下程序没有结束，请检查程序处理这个值的方式，确认程序至少有一个这样的地方能让循环条件为False或让break语句得以执行。
+>
+>   ​		注意：有些编辑器（如Sublime Text）内嵌了输出窗口，这可能导致难以结束无限循环，因此不得不关闭编辑器来结束无限循环。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # counting.py
+>   x = 1
+>   while x <= 5:
+>       print(x)
+>       x += 1
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   1
+>   2
+>   3
+>   4
+>   5
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   # 这个循环将没完没了地运行！
+>   x = 1
+>   while x <= 5:
+>       print(x)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   1
+>   1
+>   1
+>   1
+>   --snip--
 >   ```
 
