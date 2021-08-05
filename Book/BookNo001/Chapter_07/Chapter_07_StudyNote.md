@@ -402,11 +402,11 @@
 >   # counting.py
 >   current_number = 0
 >   while current_number < 10:
->       current_number += 1
->       if current_number % 2 == 0:
->           continue
+>        current_number += 1
+>        if current_number % 2 == 0:
+>            continue
 >       
->       print(current_number)
+>        print(current_number)
 >   ```
 >
 >   输出语句：
@@ -437,8 +437,8 @@
 >   # counting.py
 >   x = 1
 >   while x <= 5:
->       print(x)
->       x += 1
+>        print(x)
+>        x += 1
 >   ```
 >
 >   输出语句：
@@ -459,7 +459,7 @@
 >   # 这个循环将没完没了地运行！
 >   x = 1
 >   while x <= 5:
->       print(x)
+>        print(x)
 >   ```
 >
 >   输出语句：
@@ -471,4 +471,131 @@
 >   1
 >   --snip--
 >   ```
+
+## 7.3 使用 while 循环来处理列表和字典
+
+>   ​		要记录大量的用户和信息，需要在while循环中使用列表和字典。
+>
+>   ​		for循环是一种遍历列表的有效方式，但在for循环中不应修改列表，否则将导致Python难以跟踪其中的元素。
+>
+>   ​		要在遍历列表的同时对其进行修改，可使用while循环。通过将while循环同列表和字典结合起来，可收集、存储并组织大量输入，供以后查看和显示。
+
+### 7.3.1 在列表之间移动元素
+
+>   示例：
+>
+>   ```python
+>   # confirmed_users.py
+>   # 首先，创建一个待验证用户列表
+>   #  和一个用于存储已验证用户的空列表
+>   unconfirmed_users = ['alice', 'brain', 'candace']
+>   confirmed_users = []
+>   
+>   # 验证每个用户，直到没有未验证用户为止
+>   #  将每个经过验证的列表都移到已验证用户列表中
+>   while unconfirmed_users:
+>       current_user = unconfirmed_users.pop()
+>       
+>       print("Verifying user:  " + current_user.title())
+>       confirmed_users.append(current_user)
+>   
+>   # 显示所有已验证的用户
+>   print("\nThe following users have been confirmed:")
+>   for confirmed_user in confirmed_users:
+>       print(confirmed_user.title())
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   Verifying user:  Candace
+>   Verifying user:  Brain
+>   Verifying user:  Alice
+>   
+>   The following users have been confirmed:
+>   Candace
+>   Brain
+>   Alice
+>   ```
+
+### 7.3.2 删除包含特定值的所有列表元素
+
+>   ​		我们使用方法remove()来删除列表中的特定值。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # pets.py
+>   pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
+>   print(pets)
+>   
+>   while 'cat' in pets:
+>       pets.remove('cat')
+>       
+>   print(pets)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
+>   ['dog', 'dog', 'goldfish', 'rabbit']
+>   ```
+
+### 7.3.3 使用用户输入来填充字典
+
+>   ​		可使用while循环提示用户输入任意数量的信息。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # mountain_poll.py
+>   responses = {}
+>   
+>   # 设置一个标志，指出调查是否继续
+>   polling_active = True
+>   
+>   while polling_active:
+>       # 提示输入被调查者的名字和回答
+>       name = input("\nWhat is your name? ")
+>       response = input("Which mountain would you like to climb someday? ")
+>       
+>       # 将答卷存储在字典中
+>       responses[name] = response
+>       
+>       # 看看是否还有人要参与调查
+>       repeat = input("Would you like to let another person respond? (yes/ no) ")
+>       if repeat == 'no':
+>           polling_active = False
+>   
+>   # 调查结束，显示结果
+>   print("\n--- Poll Results ---")
+>   for name, response in responses.items():
+>       print(name + " would like to climb " + response + ".")
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   What is your name? Eric
+>   Which mountain would you like to climb someday? Denali
+>   Would you like to let another person respond? (yes/ no) yes
+>   
+>   What is your name? Lynn
+>   Which mountain would you like to climb someday? Devil's Thumb
+>   Would you like to let another person respond? (yes/ no) no
+>   
+>   --- Poll Results ---
+>   Eric would like to climb Denali.
+>   Lynn would like to climb Devil's Thumb.
+>   ```
+
+## 7.4 小结
+
+>   ​		在本章中，你学习了：如何在程序中使用input()来让用户提供信息；如何处理文本和数字输入，以及如何使用while循环让程序按用户的要求不断地运行；多种控制while循环流程的方式：设置活动标志、使用break语句以及使用continue语句；如何使用while循环在列表之间移动元素，以及如何从列表中删除所有包含特定值的元素；如何结合使用while循环和字典。
 
