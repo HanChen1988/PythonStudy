@@ -290,11 +290,11 @@
 >   # formatted_name.py
 >   # 函数get_formatted_name()的定义通过形参接受名和姓。
 >   def get_formatted_name(first_name, last_name):
->       """返回整洁的姓名"""
->       # 它将姓和名合二为一，在它们之间加上一个空格，并将结果存储在变量full_name中。
->       full_name = first_name + ' ' + last_name
->       # 然后，将full_name的值转换为首字母大写格式，并将结果返回到函数调用行。
->       return full_name.title()
+>        """返回整洁的姓名"""
+>        # 它将姓和名合二为一，在它们之间加上一个空格，并将结果存储在变量full_name中。
+>        full_name = first_name + ' ' + last_name
+>        # 然后，将full_name的值转换为首字母大写格式，并将结果返回到函数调用行。
+>        return full_name.title()
 >   
 >   # 调用返回值的函数时，需要提供一个变量，用于存储返回的值。
 >   musician = get_formatted_name('jimi', 'hendrix')
@@ -319,12 +319,12 @@
 >
 >   ```python
 >   def get_formatted_name(first_name, last_name, middle_name=''):
->       """返回整洁的姓名"""
->       if middle_name:
->           full_name = first_name + ' ' + middle_name + ' ' + last_name
->       else:
->           full_name = first_name + ' ' + last_name
->       return full_name.title()
+>        """返回整洁的姓名"""
+>        if middle_name:
+>            full_name = first_name + ' ' + middle_name + ' ' + last_name
+>        else:
+>            full_name = first_name + ' ' + last_name
+>        return full_name.title()
 >       
 >   musician = get_formatted_name('jimi', 'hendrix')
 >   print(musician)
@@ -351,9 +351,9 @@
 >   ```python
 >   # person.py
 >   def build_person(first_name, last_name):
->       """返回一个字典，其中包含有关一个人的信息"""
->       person = {'first': first_name, 'last': last_name}
->       return person
+>        """返回一个字典，其中包含有关一个人的信息"""
+>        person = {'first': first_name, 'last': last_name}
+>        return person
 >   
 >   musician = build_person('jimi', 'hendrix')
 >   print(musician)
@@ -371,11 +371,11 @@
 >
 >   ```python
 >   def build_person(first_name, last_name, age=''):
->       """返回一个字典，其中包含有关一个人的信息"""
->       person = {'first': first_name, 'last': last_name} 
->       if age:
->           person['age'] = age
->       return person
+>        """返回一个字典，其中包含有关一个人的信息"""
+>        person = {'first': first_name, 'last': last_name} 
+>        if age:
+>            person['age'] = age
+>        return person
 >   
 >   musician = build_person('jimi', 'hendrix', age=27)
 >   print(musician)
@@ -394,30 +394,29 @@
 >   ```python
 >   # greeter.py
 >   def get_formatted_name(first_name, last_name):
->       """返回整洁的姓名"""
->       full_name = first_name + ' ' + last_name
->       return full_name.title()
+>        """返回整洁的姓名"""
+>        full_name = first_name + ' ' + last_name
+>        return full_name.title()
 >   
->   # 这是一个无限循环！
 >   while True:
 >       print("\nPlease tell me your name:")
->       print("(enter 'q' at any time to quit)")
->       
->       f_name = input("First name: ")
->       if f_name == 'q':
->           break
->       
->       l_name = input("Last name: ")
->       if l_name == 'q':
->           break
->           
->       formatted_name = get_formatted_name(f_name, l_name)
->       print("\nHello, " + formatted_name + "!")
->   ```
->
->   输出语句：
->
->   ```python
+>        print("(enter 'q' at any time to quit)")
+>    
+>           f_name = input("First name: ")
+>        if f_name == 'q':
+>            break
+>    
+>           l_name = input("Last name: ")
+>        if l_name == 'q':
+>            break
+>    
+>               formatted_name = get_formatted_name(f_name, l_name)
+>        print("\nHello, " + formatted_name + "!")
+>    ```
+>   
+>输出语句：
+>   
+>```python
 >   
 >   Please tell me your name:
 >   (enter 'q' at any time to quit)
@@ -442,10 +441,10 @@
 >   ```python
 >   # greet_users.py
 >   def greet_users(names):
->       """向列表中的每位用户都发出简单的问候"""
->       for name in names:
->           msg = "Hello, " + name.title() + "!"
->           print(msg)
+>        """向列表中的每位用户都发出简单的问候"""
+>        for name in names:
+>            msg = "Hello, " + name.title() + "!"
+>            print(msg)
 >       
 >   usernames = ['hannah', 'ty', 'margot']
 >   greet_users(usernames)
@@ -478,16 +477,16 @@
 >   # 模拟打印每个设计，直到没有未打印的设计为止
 >   # 打印每个设计后，都将其移到列表completed_models中
 >   while unprinted_designs:
->       current_design = unprinted_designs.pop()
+>        current_design = unprinted_designs.pop()
 >       
->       #模拟根据设计制作3D打印模型的过程
->       print("Printing model: " + current_design)
->       completed_models.append(current_design)
+>        #模拟根据设计制作3D打印模型的过程
+>        print("Printing model: " + current_design)
+>        completed_models.append(current_design)
 >       
 >   # 显示打印好的所有模型
 >   print("\nThe following models have been printed:")
 >   for completed_model in completed_models:
->       print(completed_model)
+>        print(completed_model)
 >   ```
 >
 >   输出语句：
@@ -509,22 +508,22 @@
 >
 >   ```python
 >   def print_models(unprinted_designs, completed_models):
->       """
->       模拟打印每个设计，直到没有未打印的设计为止
->       打印每个设计后，都将其移到列表completed_models中
->       """
->       while unprinted_designs:
->           current_design = unprinted_designs.pop()
+>        """
+>        模拟打印每个设计，直到没有未打印的设计为止
+>        打印每个设计后，都将其移到列表completed_models中
+>        """
+>        while unprinted_designs:
+>            current_design = unprinted_designs.pop()
 >           
->           # 模拟根据设计制作3D打印模型的过程
->           print("Printing model: " + current_design)
->           completed_models.append(current_design)
+>            # 模拟根据设计制作3D打印模型的过程
+>            print("Printing model: " + current_design)
+>            completed_models.append(current_design)
 >           
 >   def show_completed_models(completed_models):
->       """显示打印好的所有模型"""
->       print("\nThe following models have been printed:")
->       for completed_model in completed_models:
->           print(completed_model)
+>        """显示打印好的所有模型"""
+>        print("\nThe following models have been printed:")
+>        for completed_model in completed_models:
+>            print(completed_model)
 >           
 >   unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
 >   completed_models = []
@@ -555,3 +554,379 @@
 >   ​		切片表示法[:]创建列表的副本。
 >
 >   ​		虽然向函数传递列表的副本可保留原始列表的内容，但除非有充分的理由需要传递副本，否则还是应该将原始列表传递给函数，因为让函数使用现成列表可避免花时间和内存创建副本，从而提高效率，在处理大型列表时尤其如此。
+
+## 8.5 传递任意数量的实参
+
+>   ​		有时候，你预先不知道函数需要接受多少个实参，好在Python允许函数从调用语句中收集任意数量的实参。
+>
+>   
+>
+>   示例1：
+>
+>   ```python
+>   # pizza.py
+>   def make_pizza(*toppings):
+>       """打印顾客点的所有配料"""
+>       print(toppings)
+>       
+>   make_pizza('pepperoni')
+>   make_pizza('mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   ('pepperoni',)
+>   ('mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   
+>
+>   示例2：
+>
+>   ```python
+>   def make_pizza(*toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   make_pizza('pepperoni')
+>   make_pizza('mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a pizza with the following toppings:
+>   - mushrooms
+>   - green peppers
+>   - extra cheese
+>   ```
+
+### 8.5.1 结合使用位置实参和任意数量实参
+
+>   ​		如果要让函数接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后。
+>
+>   ​		Python先匹配位置实参和关键字实参，再将余下的实参都收集到最后一个形参中。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   def make_pizza(size, *toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a " + str(size) +
+>            "-inch pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   make_pizza(16, 'pepperoni')
+>   make_pizza(12, 'mushrooms', 'green perrers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a 16-inch pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a 12-inch pizza with the following toppings:
+>   - mushrooms
+>   - green perrers
+>   - extra cheese
+>   ```
+
+### 8.5.2 使用任意数量的关键字实参
+
+>   ​		有时候，需要接受任意数量的实参，但预先不知道传递给函数的会是什么样的信息。在这种情况下，可将函数编写成能够接受任意数量的键-值对—调用语句提供了多少就接受多少。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # user_profile.py
+>   def build_profile(first, last, **user_info):
+>       """创建一个字典，其中包含我们知道的有关用户的一切"""
+>       profile = {}
+>       profile['first_name'] = first
+>       profile['last_name'] = last
+>       for key, value in user_info.items():
+>           profile[key] = value
+>       return profile
+>   
+>   user_profile = build_profile('albert', 'einstein',
+>                               location='princeton',
+>                               field='physics')
+>   print(user_profile)
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   {'first_name': 'albert', 'last_name': 'einstein', 'location': 'princeton', 'field': 'physics'}
+>   ```
+
+## 8.6 将函数存储在模块中
+
+>   ​		函数的优点之一是，使用它们可将代码块与主程序分离。通过给函数指定描述性名称，可让主程序容易理解得多。你开可以更进一步，将函数存储在被称为模块的独立文件中，再将模块导入到主程序中。import语句允许在当前运行的程序文件中使用模块中的代码。
+>
+>   ​		通过将函数存储在独立的文件中，可隐藏程序代码的细节，将重点放在程序的高层逻辑上。这还能让你在众多不同的程序中重用函数。将函数存储在独立文件中后，可与其他程序员共享这些文件而不是整个程序。知道如何导入函数还能让你使用其他程序员编写的函数库。
+
+### 8.6.1 导入整个模块
+
+>   ​		要让函数是可导入的，得先创建模块。模块是扩展名为.py的文件，包含要导入到程序中的代码。
+>
+>   ​		这就是一种导入方法：只需编写一条import语句并在其中指定模块名，就可在程序中使用该模块中的所有函数。如果你使用这种import语句导入了名为module_name.py的整个模块，就可使用下面的语法来使用其中任何一个函数：module_name.function_name()
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # pizza.py
+>   def make_pizza(size, *toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a " + str(size) +
+>            "-inch pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   # making_pizzas.py
+>   import pizza
+>   
+>   pizza.make_pizza(16, 'pepperoni')
+>   pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a 16-inch pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a 12-inch pizza with the following toppings:
+>   - mushrooms
+>   - green peppers
+>   - extra cheese
+>   ```
+
+### 8.6.2 导入特定的函数
+
+>   ​		导入模块中的特定函数，这种导入方法的语法如下：
+>
+>   ​				from module_name import function_name
+>
+>   ​		通过用逗号分隔函数名，可根据需要从模块中导入任意数量的函数：
+>
+>   ​				from module_name import function_0, function_1, function_2
+>
+>   ​		若使用这种语法，调用函数时就无需使用句点。
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # pizza.py
+>   def make_pizza(size, *toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a " + str(size) +
+>            "-inch pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   # making_pizzas.py
+>   from pizza import make_pizza
+>   
+>   make_pizza(16, 'pepperoni')
+>   make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a 16-inch pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a 12-inch pizza with the following toppings:
+>   - mushrooms
+>   - green peppers
+>   - extra cheese
+>   ```
+
+### 8.6.3 使用 as 给函数指定别名
+
+>   ​		如果要导入的函数的名称可能与程序中现有的名称冲突，或者函数的名称太长，可指定简短而独一无二的别名—函数的另一个名称，类似于外号。要给函数指定这种特殊外号，需要在导入它时这样做。
+>
+>   ​		指定别名的通用语法如下：
+>
+>   ​				from module_name import function_name as fn
+>
+>
+>   示例：
+>
+>   ```python
+>   # pizza.py
+>   def make_pizza(size, *toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a " + str(size) +
+>            "-inch pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   # making_pizzas.py
+>   from pizza import make_pizza as mp
+>   
+>   mp(16, 'pepperoni')
+>   mp(12, 'mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a 16-inch pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a 12-inch pizza with the following toppings:
+>   - mushrooms
+>   - green peppers
+>   - extra cheese
+>   ```
+
+### 8.6.4 使用 as 给模块指定别名
+
+>   ​		给模块指定别名的通用语法如下：
+>
+>   ​				import module_name as mn
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # pizza.py
+>   def make_pizza(size, *toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a " + str(size) +
+>            "-inch pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   # making_pizzas.py
+>   import pizza as p
+>   
+>   p.make_pizza(16, 'pepperoni')
+>   p.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a 16-inch pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a 12-inch pizza with the following toppings:
+>   - mushrooms
+>   - green peppers
+>   - extra cheese
+>   ```
+
+### 8.6.5 导入模块中的所有函数
+
+>   ​		import语句中的星号让Python将模块中的每个函数都复制到这个程序文件中。由于导入了每个函数，可通过名称来调用每个函数，而无需使用句点表示法。然而，使用并非自己编写的大型模块时，最好不要采用这种导入方法：如果模块中有函数的名称与你的项目中使用的名称相同，可能导致意想不到的结果：Python可能遇到多个名称相同的函数或变量，进而覆盖函数，而不是分别导入所有的函数。
+>
+>   ​		最佳的做法是，要么只导入你需要使用的函数，要么导入整个模块并使用句点表示法。
+>
+>   ​		导入模块中所有函数的通用语法如下：
+>
+>   ​				from module_name import *
+>
+>   
+>
+>   示例：
+>
+>   ```python
+>   # pizza.py
+>   def make_pizza(size, *toppings):
+>       """概述要制作的比萨"""
+>       print("\nMaking a " + str(size) +
+>            "-inch pizza with the following toppings:")
+>       for topping in toppings:
+>           print("- " + topping)
+>           
+>   # making_pizzas.py
+>   from pizza import *
+>   
+>   make_pizza(16, 'pepperoni')
+>   make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+>   ```
+>
+>   输出语句：
+>
+>   ```python
+>   
+>   Making a 16-inch pizza with the following toppings:
+>   - pepperoni
+>   
+>   Making a 12-inch pizza with the following toppings:
+>   - mushrooms
+>   - green peppers
+>   - extra cheese
+>   ```
+
+## 8.7 函数编写指南
+
+>   ​		编写函数时，需要牢记几个细节。
+>
+>   ​		应给函数指定描述性名称，且只在其中使用小写字母和下划线。描述性名称可帮助你和别人明白代码想要做什么。给模块命名时也应遵循上述约定。
+>
+>   ​		每个函数都应包含简要地阐述其功能的注释，该注释应紧跟在函数定义后面，并采用文档字符串格式。文档良好的函数让其他程序员只需阅读文档字符串中的描述就能够使用它：他们完全可以相信代码如描述的那样运行；只要知道函数的名称、需要的实参以及返回值的类型，就能在自己的程序中使用它。
+>
+>   ​		给形参指定默认值时，等号两边不要有空格：
+>
+>   ​				def function_name(parameter_0, parameter_1='default value')
+>
+>   ​		对于函数调用中的关键字实参，也应遵循这种约定：
+>
+>   ​				function_name(value_0, parameter_1='value')
+>
+>   ​		[PEP8](https://www.python.org/dev/peps/pep-0008/)建议代码行的长度不要超过79字符，这样只要编辑器窗口适中，就能看到整行代码。如果形参很多，导致函数定义的长度超过了79字符，可在函数定义中输入左括号后按回车键，并在下一行按两次Tab键，从而将形参列表和只缩进一层的函数体区分开来。
+>
+>   ​		大多数编辑器都会自动对齐后续参数列表行，使其缩进程度与你给第一个参数列表行指定的缩进程度相同。
+>
+>   ​				def function_name(
+>
+>   ​						parameter_0, parameter_1, parameter_2,
+>
+>   ​						parameter_3, parameter_4, parameter_5):
+>
+>   ​					function body...
+>
+>   ​		如果程序或模块包含多个函数，可使用两个空行将相邻的函数分开，这样将更容易知道前一个函数在什么地方结束，下一个函数从什么地方开始。
+>
+>   ​		所有的import语句都应放在文件开头，唯一例外的情形是，在文件开头使用了注释来描述整个程序。
+
+## 8.8 小结
+
+>   ​		在本章中，你学习了：如何编写函数，以及如何传递实参，让函数能够访问完成其工作所需的信息；如何使用位置实参和关键字实参，以及如何接受任意数量的实参；显示输出的函数和返回值的函数；如何将函数同列表、字典、if语句和while循环结合起来使用。你还知道了如何将函数存储在被称为模块的独立文件中，让程序文件更简单、更易于理解。最后，你学习了函数编写指南，遵循这些指南可让程序始终结构良好，并对你和其他人来说易于阅读。
+>
+>   ​		程序员的目标之一是，编写简单的代码来完成任务，而函数有助于你实现这样的目标。它们让你编写好代码块并确定其能够正确运行后，就可置之不理。确定函数能够正确地完成其工作后，你就可以接着投身于下一个编码任务。
+>
+>   ​		函数让你编写代码一次后，想重用它们多少次就重用多少次。需要运行函数中的代码时，只需编写一行函数调用代码，就可让函数完成其工作。需要修改函数的行为时，只需修改一个代码块，而所做的修改将影响调用这个函数的每个地方。
+>
+>   ​		使用函数让程序更容易阅读，而良好的函数名概述了程序各个部分的作用。相对于阅读一系列的代码块，阅读一系列函数调用让你能够更快地明白程序的作用。
+>
+>   ​		函数还让代码更容易测试和调试。如果程序使用一系列的函数来完成其任务，而其中的每个函数都完成一项具体的工作，测试和维护起来将容易得多：你可编写分别调用每个函数的程序，并测试每个函数是否在它可能遇到的各种情况下都能正确地运行。经过这样的测试后你就能信心满满，深信你每次调用这些函数时，它们都将正确地运行。
+
