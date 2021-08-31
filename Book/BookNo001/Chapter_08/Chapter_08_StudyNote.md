@@ -399,14 +399,14 @@
 >        return full_name.title()
 >   
 >   while True:
->       print("\nPlease tell me your name:")
+>        print("\nPlease tell me your name:")
 >        print("(enter 'q' at any time to quit)")
 >    
->           f_name = input("First name: ")
+>        f_name = input("First name: ")
 >        if f_name == 'q':
 >            break
 >    
->           l_name = input("Last name: ")
+>        l_name = input("Last name: ")
 >        if l_name == 'q':
 >            break
 >    
@@ -566,8 +566,8 @@
 >   ```python
 >   # pizza.py
 >   def make_pizza(*toppings):
->       """打印顾客点的所有配料"""
->       print(toppings)
+>        """打印顾客点的所有配料"""
+>        print(toppings)
 >       
 >   make_pizza('pepperoni')
 >   make_pizza('mushrooms', 'green peppers', 'extra cheese')
@@ -586,10 +586,10 @@
 >
 >   ```python
 >   def make_pizza(*toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        """概述要制作的比萨"""
+>        print("\nMaking a pizza with the following toppings:")
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   make_pizza('pepperoni')
 >   make_pizza('mushrooms', 'green peppers', 'extra cheese')
@@ -620,11 +620,11 @@
 >
 >   ```python
 >   def make_pizza(size, *toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a " + str(size) +
->            "-inch pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        """概述要制作的比萨"""
+>        print("\nMaking a " + str(size) +
+>        	"-inch pizza with the following toppings:")
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   make_pizza(16, 'pepperoni')
 >   make_pizza(12, 'mushrooms', 'green perrers', 'extra cheese')
@@ -654,13 +654,13 @@
 >   ```python
 >   # user_profile.py
 >   def build_profile(first, last, **user_info):
->       """创建一个字典，其中包含我们知道的有关用户的一切"""
->       profile = {}
->       profile['first_name'] = first
->       profile['last_name'] = last
->       for key, value in user_info.items():
->           profile[key] = value
->       return profile
+>        """创建一个字典，其中包含我们知道的有关用户的一切"""
+>        profile = {}
+>        profile['first_name'] = first
+>        profile['last_name'] = last
+>        for key, value in user_info.items():
+>            profile[key] = value
+>        return profile
 >   
 >   user_profile = build_profile('albert', 'einstein',
 >                               location='princeton',
@@ -693,11 +693,11 @@
 >   ```python
 >   # pizza.py
 >   def make_pizza(size, *toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a " + str(size) +
->            "-inch pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        """概述要制作的比萨"""
+>        print("\nMaking a " + str(size) +
+>             "-inch pizza with the following toppings:")
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   # making_pizzas.py
 >   import pizza
@@ -738,11 +738,11 @@
 >   ```python
 >   # pizza.py
 >   def make_pizza(size, *toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a " + str(size) +
+>        """概述要制作的比萨"""
+>        print("\nMaking a " + str(size) +
 >            "-inch pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   # making_pizzas.py
 >   from pizza import make_pizza
@@ -778,11 +778,11 @@
 >   ```python
 >   # pizza.py
 >   def make_pizza(size, *toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a " + str(size) +
+>        """概述要制作的比萨"""
+>        print("\nMaking a " + str(size) +
 >            "-inch pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   # making_pizzas.py
 >   from pizza import make_pizza as mp
@@ -817,11 +817,11 @@
 >   ```python
 >   # pizza.py
 >   def make_pizza(size, *toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a " + str(size) +
+>        """概述要制作的比萨"""
+>        print("\nMaking a " + str(size) +
 >            "-inch pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   # making_pizzas.py
 >   import pizza as p
@@ -860,11 +860,11 @@
 >   ```python
 >   # pizza.py
 >   def make_pizza(size, *toppings):
->       """概述要制作的比萨"""
->       print("\nMaking a " + str(size) +
+>        """概述要制作的比萨"""
+>        print("\nMaking a " + str(size) +
 >            "-inch pizza with the following toppings:")
->       for topping in toppings:
->           print("- " + topping)
+>        for topping in toppings:
+>            print("- " + topping)
 >           
 >   # making_pizzas.py
 >   from pizza import *
