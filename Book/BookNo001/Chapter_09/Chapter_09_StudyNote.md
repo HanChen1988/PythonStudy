@@ -12,6 +12,8 @@
 
 ### 9.1.1 创建 Dog 类
 
+示例：
+
 ```python
 # dog.py
 class Dog():
@@ -28,7 +30,7 @@ class Dog():
         
     def roll_over(self):
         """模拟小狗被命令时打滚"""
-        print(self.name.title() + " rolled over!"
+        print(self.name.title() + " rolled over!")
 ```
 
 #### 1.方法\__init__()
@@ -55,5 +57,127 @@ class Dog():
 >
 >   ​		这让Python 2.7类的行为更像Python 3类，从而简化了你的工作。
 
+### 9.1.2 根据类创建实例
 
+>   ​		命名约定：我们通常可以认为首字母大写的名称指的是类，而小写的名称指的是根据类创建的实例。
+
+示例：
+
+```python
+class Dog():
+    """一次模拟小狗的简单尝试"""
+    
+    def __init__(self, name, age):
+        "初始化属性name和age"
+        self.name = name
+        self.age = age
+        
+    def sit(self):
+        """模拟小狗被命令时蹲下"""
+        print(self.name.title() + " is now sitting.")
+        
+    def roll_over(self):
+        """模拟小狗被命令时打滚"""
+        print(self.name.title() + " rolled over!")
+              
+my_dog = Dog('willie', 6)
+
+print("My dog's name is " + my_dog.name.title() + ".")
+print("My dog is " + str(my_dog.age) + " years old.")
+```
+
+输出语句：
+
+```python
+My dog's name is Willie.
+My dog is 6 years old.
+```
+
+#### 1.访问属性
+
+>   ​		要访问实例的属性，可使用句点表示法。
+
+#### 2.调用方法
+
+>​		要调用方法，可指定实例的名称和要调用的方法，并用句点分隔它们。
+
+示例：
+
+```python
+class Dog():
+    """一次模拟小狗的简单尝试"""
+    
+    def __init__(self, name, age):
+        "初始化属性name和age"
+        self.name = name
+        self.age = age
+        
+    def sit(self):
+        """模拟小狗被命令时蹲下"""
+        print(self.name.title() + " is now sitting.")
+        
+    def roll_over(self):
+        """模拟小狗被命令时打滚"""
+        print(self.name.title() + " rolled over!")
+              
+my_dog = Dog('willie', 6)
+my_dog.sit()
+my_dog.roll_over()
+```
+
+输出语句：
+
+```python
+Willie is now sitting.
+Willie rolled over!
+```
+
+#### 3.创建多个实例
+
+>   ​		可按需求根据一个类创建任意数量的实例，条件是将每个实例都存储在不同的变量中，或占用列表或字典的不同位置。
+
+示例：
+
+```python
+class Dog():
+    """一次模拟小狗的简单尝试"""
+    
+    def __init__(self, name, age):
+        "初始化属性name和age"
+        self.name = name
+        self.age = age
+        
+    def sit(self):
+        """模拟小狗被命令时蹲下"""
+        print(self.name.title() + " is now sitting.")
+        
+    def roll_over(self):
+        """模拟小狗被命令时打滚"""
+        print(self.name.title() + " rolled over!")
+              
+my_dog = Dog('willie', 6)
+your_dog = Dog('lucy', 3)
+
+print("My dog's name is " + my_dog.name.title() + ".")
+print("My dog is " + str(my_dog.age) + " years old.")
+my_dog.sit()
+              
+print("\nYour dog's name is " + your_dog.name.title() + ".")
+print("Your dog is " + str(your_dog.age) + " years old.")
+your_dog.sit()
+```
+
+输出语句：
+
+```python
+My dog's name is Willie.
+My dog is 6 years old.
+Willie is now sitting.
+
+Your dog's name is Lucy.
+Your dog is 3 years old.
+Lucy is now sitting.
+```
+
+## 9.2 使用类和实例
 
