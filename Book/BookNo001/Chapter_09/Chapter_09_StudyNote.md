@@ -571,3 +571,290 @@ print(my_tesla.get_descriptive_name())
 ### 9.3.3 给子类定义属性和方法
 
 >   ​		让一个类继承另一个类后，可添加区分子类和父类所需的新属性和方法。
+
+示例：
+
+```python
+# electric_car.py
+class Car(object):
+    """一次模拟汽车的简单尝试"""
+    
+    def __init__(self, make, model, year):
+        """初始化描述汽车的属性"""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+        
+    def get_descriptive_name(self):
+        """返回整洁的描述性信息"""
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+    
+    def read_odometer(self):
+        """打印一条指出汽车里程的消息"""
+        print("This car has " + str(self.odometer_reading) + " miles on it.")
+        
+    def update_odometer(self, mileage):
+        """
+        将里程表读数设置为指定的值
+        禁止将里程表读数往回调
+        """
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+        	print("You can't roll back an odometer!")
+            
+    def increment_odometer(self, miles):
+        """将里程表读数增加指定的量"""
+        self.odometer_reading += miles
+        
+
+class ElectricCar(Car):
+    """
+    电动汽车的独特之处
+    初始化父类的属性，再初始化电动汽车特有的属性
+    """
+    
+    def __init__(self, make, model, year):
+        """初始化父类的属性"""
+        super(ElectricCar, self).__init__(make, model, year)
+        self.battery_size = 70
+        
+    def describe_battery(self):
+        """打印一条描述电瓶容量的消息"""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+        
+my_tesla = ElectricCar('tesla', 'model s', 2016)
+print(my_tesla.get_descriptive_name())
+my_tesla.describe_battery()
+```
+
+输出语句：
+
+```python
+2016 Tesla Model S
+This car has a 70-kWh battery.
+```
+
+### 9.3.4 重写父类的方法
+
+>   ​		对于父类的方法，只要它不符合子类模拟的实物的行为，都可对其进行重写。为此，可在子类中定义一个这样的方法，即它与要重写的父类方法同名。这样，Python将不会考虑这个父类方法，而只关注你在子类中定义的相应方法。
+
+示例：
+
+```python
+# 假设Car类有一个名为fill_gas_tank()的方法。
+class ElectricCar(Car):
+    --snip--
+    
+    def fill_gas_tank(self):
+        """电动汽车没有油箱"""
+        print("This car doesn't need a gas tank!")
+```
+
+### 9.3.5 将实例用作属性
+
+>   ​		使用代码模拟实物时，你可能会发现自己给类添加的细节越来越多：属性和方法清单以及文件都越来越长。在这种情况下，可能需要将类的一部分作为一个独立的类提取出来。你可以将大型类拆分成多个协同工作的小类。
+
+示例1：
+
+```python
+# electric_car.py
+class Car(object):
+    """一次模拟汽车的简单尝试"""
+    
+    def __init__(self, make, model, year):
+        """初始化描述汽车的属性"""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+        
+    def get_descriptive_name(self):
+        """返回整洁的描述性信息"""
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+    
+    def read_odometer(self):
+        """打印一条指出汽车里程的消息"""
+        print("This car has " + str(self.odometer_reading) + " miles on it.")
+        
+    def update_odometer(self, mileage):
+        """
+        将里程表读数设置为指定的值
+        禁止将里程表读数往回调
+        """
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+        	print("You can't roll back an odometer!")
+            
+    def increment_odometer(self, miles):
+        """将里程表读数增加指定的量"""
+        self.odometer_reading += miles
+        
+
+class Battery():
+    """一次模拟电动汽车电瓶的简单尝试"""
+    
+    def __init__(self, battery_size=70):
+        """初始化电瓶的属性"""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """打印一条描述电瓶容量的消息"""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+
+class ElectricCar(Car):
+    """
+    电动汽车的独特之处
+    初始化父类的属性，再初始化电动汽车特有的属性
+    """
+    
+    def __init__(self, make, model, year):
+        """初始化父类的属性"""
+        super(ElectricCar, self).__init__(make, model, year)
+        self.battery = Battery()
+        
+my_tesla = ElectricCar('tesla', 'model s', 2016)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+```
+
+输出语句：
+
+```python
+2016 Tesla Model S
+This car has a 70-kWh battery.
+```
+
+示例2：
+
+```python
+# electric_car.py
+class Car(object):
+    """一次模拟汽车的简单尝试"""
+    
+    def __init__(self, make, model, year):
+        """初始化描述汽车的属性"""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+        
+    def get_descriptive_name(self):
+        """返回整洁的描述性信息"""
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+    
+    def read_odometer(self):
+        """打印一条指出汽车里程的消息"""
+        print("This car has " + str(self.odometer_reading) + " miles on it.")
+        
+    def update_odometer(self, mileage):
+        """
+        将里程表读数设置为指定的值
+        禁止将里程表读数往回调
+        """
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+        	print("You can't roll back an odometer!")
+            
+    def increment_odometer(self, miles):
+        """将里程表读数增加指定的量"""
+        self.odometer_reading += miles
+        
+
+class Battery():
+    """一次模拟电动汽车电瓶的简单尝试"""
+    
+    def __init__(self, battery_size=70):
+        """初始化电瓶的属性"""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """打印一条描述电瓶容量的消息"""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+        
+    def get_range(self):
+        """打印一条消息，指出电瓶的续航里程"""
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 270
+            
+        message = "This car can go approximately " + str(range)
+        message += " miles on a full charge."
+        print(message)
+
+class ElectricCar(Car):
+    """
+    电动汽车的独特之处
+    初始化父类的属性，再初始化电动汽车特有的属性
+    """
+    
+    def __init__(self, make, model, year):
+        """初始化父类的属性"""
+        super(ElectricCar, self).__init__(make, model, year)
+        self.battery = Battery()
+        
+my_tesla = ElectricCar('tesla', 'model s', 2016)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+```
+
+输出语句：
+
+```python
+2016 Tesla Model S
+This car has a 70-kWh battery.
+This car can go approximately 240 miles on a full charge.
+```
+
+### 9.3.6 模拟实物
+
+>   ​		解决问题时，你从较高的逻辑层面（而不是语法层面）考虑；你考虑的不是Python，而是如何使用代码来表示实物。到达这种境界后，你经常会发现，现实世界的建模方法并没有对错之分。有些方法的效率更高，但要找出效率最高的表示法，需要经过一定的实践。只要代码像你希望的那样运行，就说明你做得很好！即便你发现自己不得不多次尝试使用不同的方法来重写类，也不必气馁；要编写出高效、准确的代码，都得经过这样的过程。
+
+## 9.4 导入类
+
+>   ​		随着你不断地给类添加功能，文件可能变得很长，即便你妥善地使用了继承亦如此。为遵循Python的总体理念，应让文件尽可能整洁。为在这方面提供帮助，Python允许你将类存储在模块中，然后在主程序中导入所需的模块。
+>
+>   ​		导入类是一种有效的编程方式。通过将导入类移到一个模块中，并导入该模块，你依然可以使用其所有功能，但主程序文件变得整洁而易于阅读了。这还能让你将大部分逻辑存储在独立的文件中；确实类像你希望的那样工作后，你就可以不管这些文件，而专注于主程序的高级逻辑了。
+
+### 9.4.1 导入单个类
+
+示例：
+
+```python
+# my_car.py
+from car import Car
+
+my_new_car = Car('audi', 'a4', 2016)
+print(my_new_car.get_descriptive_name())
+
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+```
+
+输出语句：
+
+```python
+2016 Audi A4
+This car has 23 miles on it.
+```
+
+### 9.4.2 在一个模块中存储多个类
+
+>   ​		虽然同一个模块中的类之间应存在某种相关性，但可根据需要在一个模块中存储任意数量的类。
+
+### 9.4.3 从一个模块中导入多个类
+
+### 9.4.4 导入整个模块
+
+### 9.4.5 导入模块中的所有类
+
+### 9.4.6 在一个模块中导入另一个模块
+
