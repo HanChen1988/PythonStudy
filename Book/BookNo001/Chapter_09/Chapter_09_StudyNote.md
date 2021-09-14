@@ -850,11 +850,165 @@ This car has 23 miles on it.
 
 >   ​		虽然同一个模块中的类之间应存在某种相关性，但可根据需要在一个模块中存储任意数量的类。
 
+示例：
+
+```python
+# my_electric_car.py
+from car import ElectricCar
+
+my_tesla = ElectricCar('tesla', 'model s', 2016)
+
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+```
+
+输出语句：
+
+```python
+2016 Tesla Model S
+This car has a 70-kWh battery.
+This car can go approximately 240 miles on a full charge.
+```
+
 ### 9.4.3 从一个模块中导入多个类
+
+>​		可根据需要在程序文件中导入任意数量的类。
+
+示例：
+
+```python
+# my_cars.py
+from car import Car, ElectricCar
+
+my_beetle = Car('volkswagen', 'beetle', 2016)
+print(my_beetle.get_descriptive_name())
+
+my_tesla = ElectricCar('tesla', 'roadster', 2016)
+print(my_tesla.get_descriptive_name())
+```
+
+输出语句：
+
+```python
+2016 Volkswagen Beetle
+2016 Tesla Roadster
+```
 
 ### 9.4.4 导入整个模块
 
+>   ​		还可以导入整个模块，再使用句点表示法访问需要的类。这种导入方法很简单，代码也易于阅读。由于创建类实例的代码都包含模块名，因此不会与当前文件使用的任何名称发生冲突。
+
+示例：
+
+```python
+# my_cars.py
+import car
+
+my_beetle = car.Car('volkswagen', 'beetle', 2016)
+print(my_beetle.get_descriptive_name())
+
+my_tesla = car.ElectricCar('tesla', 'roadster', 2016)
+print(my_tesla.get_descriptive_name())
+```
+
+输出语句：
+
+```python
+2016 Volkswagen Beetle
+2016 Tesla Roadster
+```
+
 ### 9.4.5 导入模块中的所有类
+
+>   ​		要导入模块中的每个类，可使用下面的语法：
+>
+>   ​				from module_name import *
+>
+>   ​		不推荐使用这种导入方式，其原因有二。首先，如果只要看一下文件开头的import语句，就能清楚地知道程序使用了哪些类，将大有裨益；但这种导入方式没有明确地指出你使用了模块中的哪些类。这种导入方式还可能引发名称方面的困惑。如果你不小心导入了一个与程序文件中其他东西同名的类，将引发难以诊断的错误。这里之所以介绍这种导入方式，是因为虽然不推荐使用这种方式，但你可能会在别人编写的代码中见到它。
+>
+>   ​		需要从一个模块中导入很多类时，最好导入整个模块，并使用module_name.class_name语法来访问类。这样做时，虽然文件开头并没有列出用到的所有类，但你清楚地知道在程序的那些地方使用了导入的模块；你还避免了导入模块中的每个类可能引发的名称冲突。
 
 ### 9.4.6 在一个模块中导入另一个模块
 
+>   ​		有时候，需要将类分散到多个模块中，以免模块太大，或在同一个模块中存储不相关的类。将类存储在多个模块中时，你可能会发现一个模块中的类依赖于另一个模块中的类。在这种情况下，可在前一个模块中导入必要的类。
+
+示例：
+
+```python
+# my_cars.py
+from car import Car
+from electric_car import ElectricCar
+
+my_beetle = Car('volkswagen', 'beetle', 2016)
+print(my_beetle.get_descriptive_name())
+
+my_tesla = ElectricCar('tesla', 'roadster', 2016)
+print(my_tesla.get_descriptive_name())
+```
+
+输出语句：
+
+```python
+2016 Volkswagen Beetle
+2016 Tesla Roadster
+```
+
+### 9.4.7 自定义工作流程
+
+>   ​		正如你看到的，在组织大型项目的代码方面，Python提供了很多选项。熟悉所有这些选项很重要，这样你才能确定哪种项目组织方式是最佳的，并能理解别人开发的项目。
+>
+>   ​		一开始应让代码结构尽可能简单。先尽可能在一个文件中完成所有的工作，确定一切都能正确运行后，再将类移到独立的模块中。如果你喜欢模块和文件的交互方式，可在项目开始时就尝试将类存储到模块中。先找出让你能够编写出可行代码的方式，再尝试让代码更为组织有序。
+
+## 9.5 Python标准库
+
+>   ​		Python标准库是一组模块，安装的Python都包含它。你现在对类的工作原理已有大致的了解，可以开始使用其他程序员编写好的模块了。可使用标准库中的任何函数和类，为此只需在程序开头包含一条简单的import语句。
+>
+>   ​		字典让你能够将信息关联起来，但它们不记录你添加键-值对的顺序。要创建字典并记录其中的键-值对的添加顺序，可使用模块collections中的OrderedDict类。OrderedDict实例的行为几乎与字典相同，区别只在与记录了键-值对的添加顺序。
+>
+>   ​		这是一个很不错的类，它兼具列表和字典的主要优点（在将信息关联起来的同时保留原来的顺序）。等你开始对关心的现实情形建模时，可能会发现有序字典正好能够满足需求。随着你对标准库的了解越来越深入，将熟悉大量可帮助你处理常见情形的模块。
+
+示例：
+
+```python
+# favorite_languages.py
+from collections import OrderedDict
+
+favorite_languages = OrderedDict()
+
+favorite_languages['jen'] = 'python'
+favorite_languages['sarah'] = 'c'
+favorite_languages['edward'] = 'ruby'
+favorite_languages['phil'] = 'python'
+
+for name, language in favorite_languages.items():
+    print(name.title() + "'s favorite language is " +
+         language.title() + ".")
+```
+
+输出语句：
+
+```python
+Jen's favorite language is Python.
+Sarah's favorite language is C.
+Edward's favorite language is Ruby.
+Phil's favorite language is Python.
+```
+
+## 9.6 类编码风格
+
+>​		你必须熟悉有些与类相关的编码风格问题，在你编写的程序较复杂时尤其如此。
+>
+>​		类名应采用驼峰命名法，即将类名中的每个单词的首字母都大写，而不使用下划线。实例名和模块名都采用小写格式，并在单词之间加上下划线。
+>
+>​		对于每个类，都应紧跟在类定义后面包含一个文档字符串。这种文档字符串简要地描述类的功能，并遵循编写函数的文档字符串时采用的格式约定。每个模块也都应包含一个文档字符串，对其中的类可用于做什么进行描述。
+>
+>​		可使用空行来组织代码，但不要滥用。在类中，可使用一个空行来分隔方法；而在模块中，可使用两个空行来分隔类。
+>
+>​		需要同时导入标准库中的模块和你编写的模块时，先编写导入标准库模块的import语句，再添加一个空行，然后编写导入你自己编写的模块的import语句。在包含多条import语句的程序中，这种做法让人更容易明白程序使用的各个模块都来自何方。
+
+## 9.7 小结
+
+>   ​		在本章中，你学习了：如何编写类；如何使用属性在类中存储信息，以及如何编写方法，以让类具备所需的行为；如何编写方法\__init__()，以便根据类创建包含所需属性的实例。你见识了如何修改实例的属性—包括直接修改以及通过方法进行修改。你还了解了：使用继承可简化相关类的创建工作；将一个类的实例用作另一个类的属性可让类更简洁。
+>
+>   ​		你了解到，通过将类存储在模块中，并在需要使用这些类的文件中导入它们，可让项目组织有序。你学习了Python标准库，并见识了一个使用模块collections中的OrderedDict类的示例。最后，你学习了编写类时应遵循的Python约定。
