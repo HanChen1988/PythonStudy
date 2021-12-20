@@ -776,5 +776,250 @@ The file little_women.txt has about 189079 words.
 >
 >   ​		编写得很好且经过详尽测试的代码不容易出现内部错误，如语法或逻辑错误，但只要程序依赖于外部因素，如用户输入、存在指定的文件、有网络链接，就有可能出现异常。凭借经验可判断该在程序的什么地方包含异常处理块，以及出现错误时该向用户提供多少相关的信息。
 
+## 10.4 存储数据
 
+>   ​		一种简单的方式是使用模块json来存储数据。
+>
+>   ​		模块json让你能够将简单的Python数据结构转储到文件中，并在程序再次运行时加载该文件中的数据。
+>
+>   ​		你还可以使用json在Python程序之间分享数据。更重要的是，JSON数据格式并非Python专用的，这让你能够将以JSON格式存储的数据与使用其他编程语言的人分享。这是一种轻便格式，很有用，也易于学习。
+>
+>   ​		注意：JSON（JavaScript Object Notation）格式最初是为JavaScript开发的，但随后成了一种常见格式，被包括Python在内的众多语言采用。
 
+### 10.4.1 使用 json.dump() 和 json.load()
+
+>   ​		使用json.dump()来存储数据。
+>
+>   ​		函数json.dump()接受两个实参：要存储的数据以及可用于存储数据的文件对象。
+>
+>   ​		使用json.load()将数据读取到内存。
+
+示例1：
+
+```python
+# number_writer.py
+import json
+
+numbers = [2, 3, 5, 7, 11, 13]
+
+filename = 'numbers.json'
+with open(filename, 'w') as f_obj:
+    json.dump(numbers, f_obj)
+```
+
+输出语句：
+
+```python
+[2, 3, 5, 7, 11, 13]
+```
+
+示例2：
+
+```python
+# number_reader.py
+import json
+
+filename = 'numbers.json'
+with open(filename) as f_obj:
+    numbers = json.load(f_obj)
+
+print(numbers)
+```
+
+输出语句：
+
+```python
+[2, 3, 5, 7, 11, 13]
+```
+
+### 10.4.2 保存和读取用户生成的数据
+
+>   ​		对于用户生成的数据，使用json保存它们大有裨益，因为如果不以某种方式进行存储，等程序停止运行时用户的信息将丢失。
+
+示例1：
+
+```python
+# remember_me.py
+import json
+
+username = input("What is your name? ")
+
+filename = 'username.json'
+with open(filename, 'w') as f_obj:
+    json.dump(username, f_obj)
+    print("We'll remember you when you come back, " + username + "!")
+```
+
+输出语句：
+
+```python
+What is your name? Eric
+We'll remember you when you come back, Eric!
+```
+
+示例2：
+
+```python
+# greet_user.py
+import json
+
+filename = 'username.json'
+
+with open(filename) as f_obj:
+    username = json.load(f_obj)
+    print("Welcome back, " + username + "!")
+```
+
+输出语句：
+
+```python
+Welcome back, Eric!
+```
+
+示例3：
+
+```python
+# remember_me.py
+import json
+
+# 如果以前存储了用户名，就加载它
+# 否则，就提示用户输入用户名并存储它
+filename = 'username.json'
+try:
+    with open(filename) as f_obj:
+        username = json.load(f_obj)
+except FileNotFoundError:
+    username = input("What is your name? ")
+    with open(filename, 'w') as f_obj:
+        json.dump(username, f_obj)
+        print("We'll remember you when you come back, " + username + "!")
+else:
+    print("Welcome back, " + username + "!")
+```
+
+输出语句：
+
+```python
+Welcome back, Eric!
+```
+
+### 10.4.3 重构
+
+>   ​		你经常会遇到这样的情况：代码能够正确地运行，但可做进一步的改进——将代码划分为一系列完成具体工作的函数。这样的过程被称为重构。
+>
+>   ​		重构让代码更清晰、更易于理解、更容易扩展。
+
+示例1：
+
+```python
+# remember_me.py
+import json
+
+def greet_user():
+    """问候用户，并指出其名字"""
+    filename = 'username.json'
+    try:
+        with open(filename) as f_obj:
+            username = json.load(f_obj)
+    except FileNotFoundError:
+        username = input("What is your name? ")
+        with open(filename, 'w') as f_obj:
+            json.dump(username, f_obj)
+            print("We'll remember you when you come back, " + username + "!")
+    else:
+        print("Welcome back, " + username + "!")
+        
+greet_user()
+```
+
+输出语句：
+
+```python
+Welcome back, Eric!
+```
+
+示例2：
+
+```python
+# remember_me.py
+import json
+
+def get_stored_username():
+    """如果存储了用户名，就获取它"""
+    filename = 'username.json'
+    try:
+        with open(filename) as f_obj:
+            username = json.load(f_obj)
+    except FileNotFoundError:
+        return None
+   	else:
+        return username
+    
+def greet_user():
+    """问候用户，并指出其名字"""
+    username = get_stored_username()
+    if username:
+        print("Welcome back, " + username + "!")
+    else:
+        username = input("What is your name? ")
+        filename = 'username.json'
+        with open(filename, 'w') as f_obj:
+            json.dump(username, f_obj)
+            print("We'll remember you wehn you come back, " + username + "!")
+            
+greet_user()
+```
+
+输出语句：
+
+```python
+What is your name? Eric
+We'll remember you wehn you come back, Eric!
+```
+
+示例3：
+
+```python
+# remember_me.py
+import json
+
+def get_stored_username():
+    """如果存储了用户名，就获取它"""
+    filename = 'username.json'
+    try:
+        with open(filename) as f_obj:
+            username = json.load(f_obj)
+    except FileNotFoundError:
+        return None
+   	else:
+        return username
+    
+def get_new_username():
+    """提示用户输入用户名"""
+    username = input("What is your name? ")
+    filename = 'username.json'
+    with open(filename, 'w') as f_obj:
+        json.dump(username, f_obj)
+    return username
+
+def greet_user():
+    """问候用户，并指出其名字"""
+    username = get_stored_username()
+    if username:
+        print("Welcome back, " + username + "!")
+    else:
+        username = get_new_username()
+        print("We'll remember you when you come back, " + username + "!")
+        
+greet_user()
+```
+
+输出语句：
+
+```python
+Welcome back, Eric!
+```
+
+## 10.5 小结
+
+>   ​		在本章中，你学习了：如何使用文件；如何一次性读取整个文件，以及如何以每次一行的方式读取文件的内容；如何写入文件，以及如何将文本附加到文件末尾；什么是异常以及如何处理程序可能引发的异常；如何存储Python数据结构，以保存用户提供的信息，避免用户每次运行程序时都需要重新提供。
