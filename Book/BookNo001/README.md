@@ -972,3 +972,49 @@
         >   ​		为此，在 greet_user() 中打印欢迎用户回来的消息前，先询问他用户名是否是对的。如果不对，就调用 get_new_username() 让用户输入正确的用户名。
 
 -   10.5 小结
+
+### 第 11 章 测试代码
+
+-   11.1 测试函数
+
+    -   11.1.1 单元测试和测试用例
+
+    -   11.1.2 可通过的测试
+
+    -   11.1.3 不能通过的测试
+
+    -   11.1.4 测试未通过时怎么办
+
+    -   11.1.5 添加新测试
+
+    -   动手试一试
+
+        >   ​		11-1 城市和国家：编写一个函数，它接受两个形参：一个城市名和一个国家名。这个函数返回一个格式为 City, Country 的字符串，如 Santiago, Chile。将这个函数存储在一个名为 city_functions.py 的模块中。
+        >
+        >   ​				创建一个名为 test_cities.py 的程序，对刚编写的函数进行测试（别忘了，你需要导入模块 unittest 以及要测试的函数）。编写一个名为 test_city_country() 的方法，核实使用类似于 'santiago' 和 'chile' 这样的值来调用前述函数时，得到的字符串是正确的。运行 test_cities.py，确认测试 test_city_country() 通过了。
+        >
+        >   ​		11-2 人口数量：修改前面的函数，使其包含第三个必不可少的形参 population，并返回一个格式为 City, Country - population xxx 的字符串，如 Santiago, Chile - population 5000000。运行 test_cities.py, 确认测试 test_city_country() 未通过。
+        >
+        >   ​				修改上述函数，将形参 population 设置为可选的。再次运行 test_cities.py，确认测试 test_city_country() 又通过了。
+        >
+        >   ​				再编写一名为 test_city_country_population() 的测试，核实可以使用类似于 'santiago'、'chile' 和 'population=5000000' 这样的值来调用这个函数。再次运行 test_cities.py，确认测试 test_city_country_population() 通过了。
+
+-   11.2 测试类
+
+    -   11.2.1 各种断言方法
+
+    -   11.2.2 一个要测试的类
+
+    -   11.2.3 测试 AnonymousSurvey 类
+
+    -   11.2.4 方法 setUp()
+
+    -   动手试一试
+
+        >   ​		11-3 雇员：编写一个名为 Employee 的类，其方法\__init__()接受名、姓和年薪，并将它们都存储在属性中。编写一个名为 give_raise() 的方法，它默认将年薪增加 5000 美元，但也能够接受其他的年薪增加量。
+        >
+        >   ​				为 Employee 编写一个测试用例，其中包含两个测试方法：test_give_default_raise() 和 test_give_custom_raise()。使用方法 setUp()，以免在每个测试方法中都创建新的雇员实例。运行这个测试用例，确认两个测试都通过了。
+
+-   11.3 小结
+
+    
